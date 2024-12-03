@@ -9,10 +9,12 @@ Intitulé du projet :  Snake en C
 Description succincte du projet :
 Création d’un jeu snake, en 5 étapes :
 - création et mise ne place d’un déplacement rudimentaire (AC11.01)
-- déplacement avancé du serpent 
+- déplacement avancé du serpent (AC11.01)
 - création de collisions (AC11.01)
-- collisions et déplacement avancés
-- création de la documentation
+- collisions et déplacement avancés (AC11.01)
+- création de la documentation (AC11.01)
+
+Note : Un cahier de tests est crée à chaque étape (AC11.03)
 
 
 
