@@ -1,0 +1,37 @@
+choix_alphabet_ROT13=-1
+while choix_alphabet_ROT13<1 or choix_alphabet_ROT13>3:
+  choix_alphabet_ROT13=int(input("Quel version de l'halphabet voulez-vous utiliser ?\n""1  Version classique\n""2  Variante clavier français (AZERTY...)\n""3  Variante clavier anglais (QWERTY...)\n"))
+if choix_alphabet_ROT13 ==1:
+  minuscules="abcdefghijklmnopqrstuvwxyz"
+  majuscules="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+elif choix_alphabet_ROT13 ==2:
+  minuscules="azertyuiopqsdfghjklmwxcvbn"
+  majuscules="AZERTYUIOPQSDFGHJKLMWXCVBN"
+else:
+  minuscules="qwertyuiopasdfghjklzxcvbnm"
+  majuscules="QWERTYUIOPASDFGHJKLZXCVBNM"
+majuscules=list(majuscules)
+lenmROT13=len(majuscules)
+decalROT13=13
+def creat_dicoROT13(majuscules,decalROT13):
+  dicoROT13={}
+  for j in range(lenmROT13):
+    if j+decalROT13>=lenmROT13:
+      dicoROT13[majuscules[j]]=majuscules[j+decalROT13-26]
+    else:
+      dicoROT13[majuscules[j]]=majuscules[j+decalROT13]
+  return(dicoROT13)
+
+def codage(texte, dico_ROT13):
+  texte_c=[]
+  texte=texte.upper()   #Transforme les minuscules en majuscules
+  for lettre in texte:
+    if (lettre in dico_ROT13)==False:
+      texte_c.append(lettre)
+    else:
+      texte_c.append(dico_ROT13[lettre])
+  return (texte_c)
+
+mot_code=codage("ABCd", creat_dicoROT13(majuscules,decalROT13))
+mot_code="".join(mot_code)
+print("Voici votre texte encodé:", mot_code)

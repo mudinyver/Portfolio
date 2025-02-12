@@ -1,0 +1,6 @@
+#!/bin/bash
+cd ../data/
+ssconvert ../data/Tableau_des_medailles_v2.xlsx ../data/Tableau_des_medailles_v2.csv
+chmod +x ../data/supprLignes.php
+nb=$(../data/supprLignes.php)
+

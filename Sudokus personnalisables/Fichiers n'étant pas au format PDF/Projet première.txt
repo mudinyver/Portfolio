@@ -1,0 +1,698 @@
+choix_0=-1
+#choix_1=-1
+choix_2=-1
+choix_3=-1
+choix_4=-1
+choix_5=-1
+minuscules="abcdefghijklmnopqrstuvwxyz"
+majuscules="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+
+def harmonisation(Harmoni): #fonction permettant de transformer des lettres accentuées en leurs version non-accentuées
+  Harmoni=list(Harmoni)
+  i=0
+  while i<len(Harmoni):
+    if (Harmoni[i]=='î' or Harmoni[i]=='ï' or Harmoni[i]=='ì' or Harmoni[i]=='í'):
+      Harmoni[i]='i'
+    elif (Harmoni[i]=='û' or Harmoni[i]=='ü' or Harmoni[i]=='ù' or Harmoni[i]=='ú'):
+      Harmoni[i]='u'
+    elif (Harmoni[i]=='ö' or Harmoni[i]=='ô' or Harmoni[i]=='ó' or Harmoni[i]=='ò' or Harmoni[i]=='õ'):
+      Harmoni[i]='o'
+    elif (Harmoni[i]=='ñ'):
+      Harmoni[i]='n'
+    elif (Harmoni[i]=='ê' or Harmoni[i]=='ë' or Harmoni[i]=='é' or Harmoni[i]=='è'):
+      Harmoni[i]='e'
+    elif (Harmoni[i]=='ç'):
+      Harmoni[i]='c'
+    elif (Harmoni[i]=='à'or Harmoni[i]=='á' or Harmoni[i]=='ä'or Harmoni[i]=='â' or Harmoni[i]=='ã' or Harmoni[i]=='å'):
+      Harmoni[i]='a'
+    elif (Harmoni[i]=='Î' or Harmoni[i]=='Ï' or Harmoni[i]=='Í' or Harmoni[i]=='Ì'):
+      Harmoni[i]='I'
+    elif (Harmoni[i]=='Û' or Harmoni[i]=='Ü' or Harmoni[i]=='Ù' or Harmoni[i]=='Ú' ):
+      Harmoni[i]='U'
+    elif (Harmoni[i]=='Ö' or Harmoni[i]=='Ô' or Harmoni[i]=='Ó' or Harmoni[i]=='Ò' or Harmoni[i]=='Õ'):
+      Harmoni[i]='O'
+    elif (Harmoni[i]=='Ñ'):
+      Harmoni[i]='N'
+    elif (Harmoni[i]=='Ê' or Harmoni[i]=='Ë' or Harmoni[i]=='É' or Harmoni[i]=='È'):
+      Harmoni[i]='E'
+    elif (Harmoni[i]=='Ç'):
+      Harmoni[i]='C'
+    elif (Harmoni[i]=='À'or Harmoni[i]=='Á' or Harmoni[i]=='Ä'or Harmoni[i]=='Â' or Harmoni[i]=='Ã' or Harmoni[i]=='Å'):
+      Harmoni[i]='A'
+    else:
+      pass
+    i=i+1
+  Harmoni = "".join(Harmoni)  #Transforme la liste en chaine de caractères
+  return(Harmoni)
+
+def SupprNonAlphabet(Suppr): #fonction permettant de supprimer des lettres qui ne sont pas présentes dans l'alphabet
+  Suppr=list(Suppr)
+  s=0
+  while s<len(Suppr):
+    if ((Suppr[s] in majuscules)or(Suppr[s] in minuscules))==False:
+      del Suppr[s]
+      s=s-1
+    s=s+1
+  Suppr = "".join(Suppr)  #Transforme la liste en chaine de caractères
+  return(Suppr)
+
+
+
+encrypt=input("Veuillez entrez le texte que vous souhaitez encrypter\n")
+while choix_0<1 or choix_0>5: #J'utilise while pour que l'on puisse, plus tard, revenir en arrière dans les choix.
+  choix_0=int(input("Quel encryptage voulez-vous ?\n""1  Code césar\n""2  Code ROT\n""3  Carré de Polybe\n""4  Chiffre de Vigenère\n""5  Code césar progressif [NE CRYPTANT PAS CORRECTEMENT]\n"))
+  if choix_0 ==1: #Code César
+    decal_lettres=-27 #nécessaire pour le déclenchement de la boucle while
+    while decal_lettres<-26 or decal_lettres>26:
+      decal_lettres=int(input("De combien de lettres voulez-vous que votre phrase soit décalé    (seuls les nombres entiers entre -26 et 26 seront acceptés)?"))
+    decal_chiffres=-11 #nécessaire pour le déclenchement de la boucle while. D'ailleurs il faut 2 décalages différents car l'alphabet latin de base comporte 26 lettres or il n'existe que 10 chiffres dans le système décimal.
+    while decal_chiffres<-10 or decal_chiffres>10:
+      decal_chiffres=int(input("De combien de chiffres voulez-vous que vos nombres soit décalés    (seuls les nombres entiers entre -10 et 10 seront acceptés)?"))
+    choix_alphabet_césar=-1
+    while choix_alphabet_césar<1 or choix_alphabet_césar>3:
+      choix_alphabet_césar=int(input("Quel version de l'alphabet voulez-vous utiliser ?\n""1  Version classique\n""2  Variante clavier français (AZERTY...)\n""3  Variante clavier anglais (QWERTY...)\n"))
+    if choix_alphabet_césar ==1:
+      minuscules="abcdefghijklmnopqrstuvwxyz"
+      majuscules="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    elif choix_alphabet_césar ==2:
+      minuscules="azertyuiopqsdfghjklmwxcvbn"
+      majuscules="AZERTYUIOPQSDFGHJKLMWXCVBN"
+    else:
+      minuscules="qwertyuiopasdfghjklzxcvbnm"
+      majuscules="QWERTYUIOPASDFGHJKLZXCVBNM"
+    
+    minuscules=list(minuscules)
+    lenm1=len(minuscules)
+    def creat_dico1(minuscules,decal_lettres): #Ce bout de code provient directement du cours
+      dico1={}
+      for i in range(lenm1):
+        if i+decal_lettres>=lenm1: #si le tout est supérieur à 26...
+          dico1[minuscules[i]]=minuscules[i+decal_lettres-26]
+        else:
+          dico1[minuscules[i]]=minuscules[i+decal_lettres]
+      return(dico1)
+
+    majuscules=list(majuscules)
+    lenm2=len(majuscules)
+    def creat_dico2(majuscules,decal_lettres): #Même bout de code qu'avant, les 1 ont juste été remplacés par des 2 et les i ont été remplacées par des j.
+      dico2={}
+      for j in range(lenm2):
+        if j+decal_lettres>=lenm2:
+              dico2[majuscules[j]]=majuscules[j+decal_lettres-26]
+        else:
+              dico2[majuscules[j]]=majuscules[j+decal_lettres]
+      return(dico2)
+
+    chiffres="0123456789"
+    chiffres=list(chiffres)
+    lenm3=len(chiffres)
+    def creat_dico3(chiffres,decal_chiffres):#Même bout de code qu'avant mais il a été adapté aux chiffres, en transformant 26 en 10.
+      dico3={}
+      for k in range(lenm3):
+        if k+decal_chiffres>=lenm3:
+          dico3[chiffres[k]]=chiffres[k+decal_chiffres-10]
+        else:
+          dico3[chiffres[k]]=chiffres[k+decal_chiffres]
+      return(dico3)
+
+    def codage_m(texte,dico): #codage minuscule
+      texte_c=[]
+      texte=texte.lower() #Transforme les majuscules en minuscule
+      texte=harmonisation(texte) #voir fonction harmonisation
+      for lettre in texte:
+        if (lettre in dico)==False:#Si la lettre ne fait pas partie de l'alphabet latin de base...
+          texte_c.append(lettre) #... Metter la tel quel dans le résultat.
+        else: #Sinon...
+          texte_c.append(dico[lettre])#...Remplacer par son équivalant en césar.
+      return (texte_c)
+
+    def codage_mM(texte,dico, dico_a):#codage minuscule et majuscule
+      texte_c=[]
+      texte=harmonisation(texte)
+      for lettre in texte:
+        if (lettre in dico)==True:
+          texte_c.append(dico[lettre])
+        elif (lettre in dico_a)==True:
+          texte_c.append(dico_a[lettre])
+        else:
+          texte_c.append(lettre)
+      return (texte_c)
+
+    def codage_mMc(texte, dico_min, dico_maj, dico_chiffres):#codage minuscule, majuscule et chiffres
+      texte_c=[]
+      texte=harmonisation(texte)
+      for lettre in texte:
+        if (lettre in dico_min)==True:
+          texte_c.append(dico_min[lettre])
+        elif (lettre in dico_maj)==True:
+          texte_c.append(dico_maj[lettre])
+        elif (lettre in dico_chiffres)==True:
+          texte_c.append(dico_chiffres[lettre])
+        else:
+          texte_c.append(lettre)
+      return (texte_c)
+
+    choix_césar=-1
+    while choix_césar<1 or choix_césar>3:
+      choix_césar=int(input("Quel version du code césar voulez-vous ?\n""1  Code césar classique (tout caractères ne faisant par partie des 26 lettres de l'aphabet latin de base seront laissés tel quel).\n""2  Code césar (minuscules et majuscules uniquement)\n""3  Code césar (minuscules, majuscules et chiffres uniquement)\n"))
+    if choix_césar ==3:
+      mot_code=codage_mMc(encrypt, creat_dico1(minuscules,decal_lettres), creat_dico2(majuscules,decal_lettres), creat_dico3(chiffres,decal_chiffres))
+    elif choix_césar==2:
+      mot_code=codage_mM(encrypt,creat_dico1(minuscules,decal_lettres),creat_dico2(majuscules,decal_lettres))
+    else:
+      mot_code=codage_m(encrypt,creat_dico1(minuscules,decal_lettres))
+
+    mot_code="".join(mot_code)
+    print("Voici votre texte encodé:", mot_code)
+
+
+
+
+
+
+
+
+  
+  elif choix_0 ==2: #Code ROT13 ou ROT47
+    choix_2=-1
+    while choix_2<0 or choix_2>2:
+      choix_2=int(input("Quel variante du Code ROT13 voulez-vous ?\n"       
+ "0  Retour\n""1  Code ROT13 classique\n""2  Code ROT47\n"))
+    if choix_2 ==1: #même chose que le code césar sauf qu'on ne choisit par le décalage et qu'il n'y a que des minuscules à la fin (sans compter les caractères non-alphabétiques).
+      choix_alphabet_ROT13=-1
+      while choix_alphabet_ROT13<0 or choix_alphabet_ROT13>3:
+        choix_alphabet_ROT13=int(input("Quel version de l'alphabet voulez-vous utiliser ?\n""1  Version classique\n""2  Variante clavier français (AZERTY...)\n""3  Variante clavier anglais (QWERTY...)\n"))
+      if choix_alphabet_ROT13 ==1:
+        minuscules="abcdefghijklmnopqrstuvwxyz"
+        majuscules="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+      elif choix_alphabet_ROT13 ==2:
+        minuscules="azertyuiopqsdfghjklmwxcvbn"
+        majuscules="AZERTYUIOPQSDFGHJKLMWXCVBN"
+      elif choix_alphabet_ROT13 ==3:
+        minuscules="qwertyuiopasdfghjklzxcvbnm"
+        majuscules="QWERTYUIOPASDFGHJKLZXCVBNM"
+      else:
+        choix_2=-1
+      majuscules=list(majuscules)
+      lenmROT13=len(majuscules)
+      decalROT13=13
+      def creat_dicoROT13(majuscules,decalROT13):
+        dicoROT13={}
+        for j in range(lenmROT13):
+          if j+decalROT13>=lenmROT13:
+            dicoROT13[majuscules[j]]=majuscules[j+decalROT13-26]
+          else:
+            dicoROT13[majuscules[j]]=majuscules[j+decalROT13]
+        return(dicoROT13)
+
+      def codage(texte, dico_ROT13):
+        texte_c=[]
+        texte=texte.upper()   #Transforme les majuscules en minuscule
+        texte=harmonisation(texte)
+        for lettre in texte:
+          if (lettre in dico_ROT13)==False:
+            texte_c.append(lettre)
+          else:
+            texte_c.append(dico_ROT13[lettre])
+        return (texte_c)
+
+      mot_code=codage(encrypt, creat_dicoROT13(majuscules,decalROT13))
+      mot_code="".join(mot_code)
+      print("Voici votre texte encodé:", mot_code)
+
+    
+    elif choix_2 ==2:
+      ROT47="!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~" #Voir un article wikipédia sur cette variante si vous ne la connaisiez pas.
+      ROT47=list(ROT47)
+      lenmROT47=len(ROT47)
+      decalROT47=47
+      def creat_dicoROT47(ROT47,decalROT47):
+        dicoROT47={}
+        for j in range(lenmROT47):
+          if j+decalROT47>=lenmROT47:
+            dicoROT47[ROT47[j]]=ROT47[j+decalROT47-94] #94 = nombre de caractères dans ROT47
+          else:
+            dicoROT47[ROT47[j]]=ROT47[j+decalROT47]
+        return(dicoROT47)
+
+      def codage(texte, dico_ROT47):
+        texte_c=[]
+        texte=harmonisation(texte)
+        for lettre in texte:
+          if (lettre in dico_ROT47)==False:
+            texte_c.append(lettre)
+          else:
+            texte_c.append(dico_ROT47[lettre])
+        return (texte_c)
+
+      mot_code=codage(encrypt, creat_dicoROT47(ROT47,decalROT47))
+      mot_code="".join(mot_code)
+      print("Voici votre texte encodé:", mot_code)
+    else:
+      choix_0=0 #Si on a choisi 0 pour l'option Retour.
+
+
+
+  
+  elif choix_0 ==3: #Carré de Polybe
+    def codage(texte):
+      choix_3=-1
+      choix_3_variante=-1
+      choix_3_ordre=-1
+      while choix_3<0 or choix_3>3:#La boucle while permet de reposer la question en boucle tant que l'utilisateur n'as pas donné une des réponses qui étaient attendues.
+        choix_3_variante=-1
+        choix_3_ordre=-1
+        choix_3=int(input("Quel variante principale du carré de Polybe voulez-vous ?\n""1  Variante alphabet (classique)\n""2  Variante alphabet et chiffres\n""3  Variante alphabet, chiffres et symboles\n"))
+        if choix_3 ==1 :
+          while choix_3_variante<0 or choix_3_variante>3:
+            choix_3_ordre=-1
+            choix_3_variante=int(input("Quel variante voulez-vous ?\n""0  Retour\n""1  Variante alphabet classique\n""2  Variante alphabet clavier français (AZERTY...)\n""3  Variante alphabet clavier anglais (QWERTY...)\n"))
+            if choix_3_variante ==1 :
+              while choix_3_ordre<0 or choix_3_ordre>2:
+                choix_3_ordre=int(input("Quel ordre voulez-vous ?\n""0  Retour\n""1  Ordre ligne-colonne (ordre classique)\n""2  Ordre colonne-ligne\n"))
+                if choix_3_ordre ==1 :
+                  dicocarrePolybe = {'A':11,'B':12,'C':13,'D':14,'E':15,'F':21,'G':22,'H':23,'I':24,'J':24,'K':25,'L':31,'M':32,'N':33,'O':34,'P':35,'Q':41,'R':42,'S':43,'T':44,'U':45,'V':51,'W':52,'X':53,'Y':54,'Z':55} #Alphabet classique ligne-colonne
+                elif choix_3_ordre ==2 :
+                  dicocarrePolybe = {'A':11,'B':21,'C':31,'D':41,'E':51,'F':12,'G':22,'H':32,'I':42,'J':42,'K':52,'L':13,'M':23,'N':33,'O':43,'P':53,'Q':14,'R':24,'S':34,'T':44,'U':54,'V':15,'W':25,'X':35,'Y':45,'Z':55} #Alphabet classique colonne-(ligne)
+                else :
+                  choix_3_variante=-1 #Permet de revenir en arrière à la question des variantes(c'est d'ailleurs pour cela que mon code est si indenté)
+            elif choix_3_variante ==2 :
+              while choix_3_ordre<0 or choix_3_ordre>2:
+                choix_3_ordre=int(input("Quel ordre voulez-vous ?\n""0  Retour\n""1  Ordre ligne-colonne (ordre classique)\n""2  Ordre colonne-ligne\n"))
+              if choix_3_ordre ==1 :
+                dicocarrePolybe = {'A':11,'Z':12,'E':13,'R':14,'T':15,'Y':21,'U':22,'I':23,'O':24,'P':24,'Q':25,'S':31,'D':32,'F':33,'G':34,'H':35,'J':41,'K':42,'L':43,'M':44,'W':45,'X':51,'C':52,'V':53,'B':54,'N':55} #Alphabet clavier(fr) ligne-colonne
+              elif choix_3_ordre ==2 :
+                dicocarrePolybe = {'A':11,'Z':21,'E':31,'R':41,'T':51,'Y':12,'U':22,'I':32,'O':42,'P':42,'Q':52,'S':13,'D':23,'F':33,'G':43,'H':53,'J':14,'K':24,'L':34,'M':44,'W':54,'X':15,'C':25,'V':35,'B':45,'N':55} #Alphabet clavier(fr) colonne-ligne
+              else :
+                choix_3_variante=-1
+            elif choix_3_variante ==3 :
+              while choix_3_ordre<0 or choix_3_ordre>2:
+                choix_3_ordre=int(input("Quel ordre voulez-vous ?\n""0  Retour\n""1  Ordre ligne-colonne (ordre classique)\n""2  Ordre colonne-ligne\n"))
+                if choix_3_ordre ==1 :
+                  dicocarrePolybe = {'Q':11,'W':12,'E':13,'R':14,'T':15,'Y':21,'U':22,'I':23,'O':24,'P':24,'A':25,'S':31,'D':32,'F':33,'G':34,'H':35,'J':41,'K':42,'L':43,'Z':44,'X':45,'C':51,'V':52,'B':53,'N':54,'M':55} #Alphabet clavier(en) ligne-colonne
+                elif choix_3_ordre ==2 :
+                  dicocarrePolybe = {'Q':11,'W':21,'E':31,'R':41,'T':51,'Y':12,'U':22,'I':32,'O':42,'P':42,'A':52,'S':13,'D':23,'F':33,'G':43,'H':53,'J':14,'K':24,'L':34,'Z':44,'X':54,'C':15,'V':25,'B':35,'N':45,'M':55} #Alphabet clavier(en) colonne-ligne
+                else :
+                  choix_3_variante =-1
+            else:
+              choix_3=-1
+        elif choix_3==2:
+          while choix_3_ordre<0 or choix_3_ordre>2:
+            choix_3_ordre=int(input("Quel ordre voulez-vous ?\n""0  Retour\n""1  Ordre ligne-colonne (ordre classique)\n""2  Ordre colonne-ligne\n"))
+            if choix_3_ordre==1 :
+              dicocarrePolybe = {'A':11,'B':12,'C':13,'D':14,'E':15,'F':16,'G':21,'H':22,'I':23,'J':24,'K':25,'L':26,'M':31,'N':32,'O':33,'P':34,'Q':35,'R':36,'S':41,'T':42,'U':43,'V':44,'W':45,'X':46,'Y':51,'Z':52,'0':53,'1':54,'2':55,'3':56,'4':61,'5':62,'6':63,'7':64,'8':65,'9':66} #Alphabet & chiffres classique ligne-colonne
+            elif choix_3_ordre==2 :
+              dicocarrePolybe = {'A':11,'B':21,'C':31,'D':41,'E':51,'F':61,'G':12,'H':22,'I':32,'J':42,'K':52,'L':62,'M':13,'N':23,'O':33,'P':43,'Q':53,'R':63,'S':14,'T':24,'U':34,'V':44,'W':54,'X':64,'Y':15,'Z':25,'0':35,'1':45,'2':55,'3':65,'4':16,'5':26,'6':36,'7':46,'8':56,'9':66} #Alphabet & chiffres classique colonne-ligne
+            else :
+              choix_3=-1
+        elif choix_3==3:
+          choix_3_ordre=-1
+          while choix_3_ordre<0 or choix_3_ordre>2 :
+            choix_3_ordre=int(input("Quel ordre voulez-vous ?\n""0  Retour\n""1  Ordre ligne-colonne (ordre classique)\n""2  Ordre colonne-ligne\n"))
+            if choix_3_ordre ==1 :
+              dicocarrePolybe = {'A':11,'B':12,'C':13,'D':14,'E':15,'F':16,'G':17,'H':18,'I':21,'J':22,'K':23,'L':24,'M':25,'N':26,'O':27,'P':28,'Q':31,'R':32,'S':33,'T':34,'U':35,'V':36,'W':37,'X':38,'Y':41,'Z':42,'0':43,'1':44,'2':45,'3':46,'4':47,'5':48,'6':51,'7':52,'8':53,'9':54,' ':55,'!':56,'""':57,'#':58,'$':61,'%':62,'&':63,'\'':64,'(':65,')':66,'*':67,'+':68,',':71,'-':72,'.':73,'/':74,':':75,';':76,'<':77,'=':78,'>':81,'?':82,'@':83,'[':84,'\\':85,']':86,'^':87,'_':88} #Alphabet & chiffres & symboles classique ligne-colonne
+            elif choix_3_ordre ==2 :
+              dicocarrePolybe = {'A':11,'B':21,'C':31,'D':41,'E':51,'F':61,'G':71,'H':81,'I':12,'J':22,'K':32,'L':42,'M':52,'N':62,'O':72,'P':82,'Q':13,'R':23,'S':33,'T':43,'U':53,'V':63,'W':73,'X':83,'Y':14,'Z':24,'0':34,'1':44,'2':54,'3':64,'4':74,'5':84,'6':15,'7':25,'8':35,'9':45,' ':55,'!':65,'""':75,'#':85,'$':16,'%':26,'&':36,'\'':46,'(':56,')':66,'*':76,'+':86,',':17,'-':27,'.':37,'/':47,':':57,';':67,'<':77,'=':87,'>':18,'?':28,'@':38,'[':48,'\\':58,']':68,'^':78,'_':88} #Alphabet & chiffres & symboles classique colonne-ligne
+            else :
+              choix_3=-1
+        else:
+          choix_0=-1
+      texte_c=[]
+      texte = "".join(texte)  #Transforme la liste en chaine de caractères
+      texte=texte.upper()
+      texte=harmonisation(texte)
+      for lettre in texte:
+        if lettre in dicocarrePolybe:
+          texte_c.append(dicocarrePolybe[lettre])
+        else:
+          texte_c.append(lettre)
+      return (texte_c)
+
+    mot_code=codage(encrypt)
+    print("Voici votre texte encodé:", mot_code)
+
+
+
+
+
+
+  
+  elif choix_0 ==4: #Chiffre de Vigenère
+    choix_4_variante=-1
+    cle = 0
+    Verif = [0] #Nécessaire pour vérifier que la cle a bien au moins 2 caractères alphabétiques.
+    while len(Verif)<2:
+      cle=input("Veuillez entrez le texte que vous souhaitez utiliser comme clé.\n")
+      cle=cle.upper()   #Transforme les minuscules en majuscules
+      cle=harmonisation(cle)
+      cle=SupprNonAlphabet(cle) #Nécessaire car le code n'accepte pas les caractères non-alphabétiques
+      cle=list(cle)
+      Verif=cle
+    while choix_4_variante<1 or choix_4_variante>3:
+      choix_4_variante=int(input("Quel version de l'alphabet voulez-vous utiliser ?\n""1  Version classique\n""2  Variante clavier français (AZERTY...)\n""3  Variante clavier anglais (QWERTY...)\n"))
+    def creer_dico():
+      dico={}
+      if choix_4_variante ==1:
+        majuscules="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+      elif choix_4_variante ==2:
+        majuscules="AZERTYUIOPQSDFGHJKLMWXCVBN"
+      else:
+        majuscules="QWERTYUIOPASDFGHJKLZXCVBNM"
+      majuscules=list(majuscules)
+      for i in range(26):
+        dico[i]=majuscules[i]
+      return(dico)
+
+    def creer_dico_inv():
+      dico={}
+      if choix_4_variante ==1:
+        majuscules="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+      elif choix_4_variante ==2:
+        majuscules="AZERTYUIOPQSDFGHJKLMWXCVBN"
+      else:
+        majuscules="QWERTYUIOPASDFGHJKLZXCVBNM"
+      majuscules=list(majuscules)
+      for i in range(26):
+        dico[majuscules[i]]=i
+      return(dico)
+
+    def vigenere(texte,cle):
+      texte=texte.upper()   #Transforme les minuscules en majuscules
+      texte=harmonisation(texte)
+      texte=SupprNonAlphabet(texte) #Nécessaire car le code n'accepte pas les caractères non-alphabétiques
+      texte=list(texte)
+      cle=list(cle)
+      decrypt=[]
+      dic=creer_dico()
+      dic_inv=creer_dico_inv()
+      nbcar=len(texte)
+      nbcle=len(cle)
+      j=0
+      for i in range(0,nbcar):
+        k=dic_inv[texte[i]]+dic_inv[cle[j]] #Permet d'additionner les 2 lettres (Texte + Clé)
+        if k>25:
+          k=k-26 #Pour rester dans l'alphabet qui n'a que 26 lettres.
+        else:
+          pass
+        if j==nbcle-1:
+          j=0 #Pour revenir au début de la clé quand on l'a fini.
+        else:
+          j=j+1 #Pour avancer à la prochaine lettre de la clé.
+          decrypt.append(dic[k])
+      decrypt = "".join(decrypt)  #Transforme la liste en chaine de caractères
+      return(decrypt)
+
+    def beaufort(texte,cle):
+      texte=texte.upper()   #Transforme les minuscules en majuscules
+      texte=harmonisation(texte)
+      texte=SupprNonAlphabet(texte)
+      texte=list(texte)
+      decrypt=[]
+      dic=creer_dico()
+      dic_inv=creer_dico_inv()
+      nbcar=len(texte)
+      nbcle=len(cle)
+      j=0
+      for i in range(0,nbcar):
+        k=dic_inv[cle[j]]-dic_inv[texte[i]] #Permet de soustraire les 2 lettres (Texte - Clé)
+        if k<1:
+          k=k+26
+        else:
+          pass
+        if j==nbcle-1:
+          j=0
+        else:
+          j=j+1
+        decrypt.append(dic[k])
+      decrypt = "".join(decrypt)  #Transforme la liste en chaine de caractères
+      return(decrypt)
+
+    def autoclave(texte,cle):
+      texte=texte.upper()   #Transforme les minuscules en majuscules
+      texte=harmonisation(texte)
+      texte=SupprNonAlphabet(texte)
+      texte=list(texte)
+      print(list(cle))
+      cle_texte=list(cle)+list(texte) #Spécialité de l'autoclave, voir la FAQ au bas de cette page web: https://www.dcode.fr/chiffre-autoclave
+      decrypt=[]
+      dic=creer_dico()
+      dic_inv=creer_dico_inv()
+      nbcar=len(texte)
+      nbcle=len(cle_texte)
+      j=0
+      for i in range(0,nbcar):
+        k=dic_inv[texte[i]]+dic_inv[cle_texte[j]] #Permet d'additionner les 2 lettres (Texte + Clé)
+        if k>25:
+          k=k-26
+        else:
+          pass
+        if j==nbcle-1:
+          j=0
+        else:
+          j=j+1
+        decrypt.append(dic[k])
+      decrypt = "".join(decrypt)  #Transforme la liste en chaine de caractères
+      return(decrypt)
+
+    choix_4=-1
+    while choix_4<0 or choix_4>3:
+      choix_4=int(input("Quel variante du Chiffre de Vigenère voulez-vous ?\n"       
+ "0  Retour\n""1  Chiffre de Vigenère\n""2  Chiffre de Beaufort\n""3  Chiffre de Vigenère version autoclave\n"))
+    if choix_4 ==1:
+      print(vigenere(encrypt,cle))
+    elif choix_4 ==2:
+      print(beaufort(encrypt,cle))
+    elif choix_4 ==3:
+      print(autoclave(encrypt,cle))
+    else:
+      choix_0=0
+  elif choix_0 ==5:
+
+
+
+
+
+
+
+    choix_5=-1
+    while choix_5<0 or choix_5>2 :
+      choix_5=int(input("Quel variante du Code césar progressif voulez-vous ?\n"       
+ "0  Retour\n""1  Code césare progressif C (changement de décalage à chaque caractère)\n""2  Code césare progressif N (changement de décalage tous les N caractères)\n"))
+
+
+      
+    if choix_5 ==1:
+      decal_lettres=-27
+      while decal_lettres<-26 or decal_lettres>26:
+        decal_lettres=int(input("De combien de lettres voulez-vous que votre phrase soit décalé    (seuls les nombres entiers entre -26 et 26 seront acceptés)?\n"))
+      decal_chiffres=-11
+      while decal_chiffres<-10 or decal_chiffres>10:
+        decal_chiffres=int(input("De combien de chiffres voulez-vous que vos nombres soit décalés    (seuls les nombres entiers entre -10 et 10 seront acceptés)?\n"))
+      choix_alphabet_césar_progressif=-1
+      while choix_alphabet_césar_progressif<1 or choix_alphabet_césar_progressif>3:
+        choix_alphabet_césar_progressif=int(input("Quel version de l'halphabet voulez-vous utiliser ?\n""1  Version classique\n""2  Variante clavier français (AZERTY...)\n""3  Variante clavier anglais (QWERTY...)\n"))
+      if choix_alphabet_césar_progressif ==1:
+        minuscules="abcdefghijklmnopqrstuvwxyz"
+        majuscules="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+      elif choix_alphabet_césar_progressif ==2:
+        minuscules="azertyuiopqsdfghjklmwxcvbn"
+        majuscules="AZERTYUIOPQSDFGHJKLMWXCVBN"
+      else:
+        minuscules="qwertyuiopasdfghjklzxcvbnm"
+        majuscules="QWERTYUIOPASDFGHJKLZXCVBNM"
+    
+
+      minuscules=list(minuscules)
+      lenm1=len(minuscules)
+      def creat_dico1(minuscules,decal_lettres):
+        dico1={}
+        for i in range(lenm1):
+          decal_lettres=decal_lettres+1  #Pour que le décalage augmente à chaque caractère
+          if decal_lettres>lenm1:
+            decal_lettres=decal_lettres-26
+            if i+decal_lettres>=lenm1:
+             dico1[minuscules[i]]=minuscules[i+decal_lettres-26]
+            else:
+              pass
+          elif i+decal_lettres>=lenm1:
+            dico1[minuscules[i]]=minuscules[i+decal_lettres-26]
+          else:
+            dico1[minuscules[i]]=minuscules[i+decal_lettres]
+        return(dico1)
+
+      majuscules=list(majuscules)
+      lenm2=len(majuscules)
+      def creat_dico2(majuscules,decal_lettres):
+        dico2={}
+        for j in range(lenm2):
+          decal_lettres=decal_lettres+1
+          if decal_lettres>lenm2:
+            decal_lettres=decal_lettres-26
+            if j+decal_lettres>=lenm2:
+             dico2[majuscules[j]]=majuscules[j+decal_lettres-26]
+            else:
+              pass
+          elif j+decal_lettres>=lenm2:
+            dico2[majuscules[j]]=majuscules[j+decal_lettres-26]
+          else:
+            dico2[majuscules[j]]=majuscules[j+decal_lettres]
+        return(dico2)
+
+      chiffres="0123456789"
+      chiffres=list(chiffres)
+      lenm3=len(chiffres)
+      def creat_dico3(chiffres,decal_chiffres):
+        dico3={}
+        for k in range(lenm3):
+          decal_chiffres=decal_chiffres+1
+          if decal_chiffres>lenm3:
+            decal_chiffres=decal_chiffres-10
+            if k+decal_chiffres>=lenm3:
+             dico3[chiffres[k]]=chiffres[k+decal_chiffres-10]
+            else:
+              pass
+          elif k+decal_chiffres>=lenm3:
+            dico3[chiffres[k]]=chiffres[k+decal_chiffres-10]
+          else:
+            dico3[chiffres[k]]=chiffres[k+decal_chiffres]
+        return(dico3)
+
+      def codage(texte, dico_min, dico_maj, dico_chiffres):
+        texte_c=[]
+        for lettre in texte:
+          if (lettre in dico_min)==True:
+            texte_c.append(dico_min[lettre]) #Problème de ce code le dictionnaire qui rend une incrémentation différente de deux mêmes lettre difficiles
+          elif (lettre in dico_maj)==True:
+            texte_c.append(dico_maj[lettre])
+          elif (lettre in dico_chiffres)==True:
+            texte_c.append(dico_chiffres[lettre])
+          else:
+            texte_c.append(lettre)
+        return (texte_c)
+
+      mot_code=codage(encrypt, creat_dico1(minuscules,decal_lettres), creat_dico2(majuscules,decal_lettres), creat_dico3(chiffres,decal_chiffres))
+      mot_code="".join(mot_code)
+      print("Voici votre texte encodé (pour rappel ce code n'encrypte pas correctement et n'est dans ce sens pas terminé):", mot_code)
+
+
+
+
+      
+    elif choix_5 ==2:
+      decal_lettres=-27
+      while decal_lettres<-26 or decal_lettres>26:
+        decal_lettres=int(input("De combien de lettres voulez-vous que votre phrase soit décalé    (seuls les nombres entiers entre -26 et 26 seront acceptés)?\n"))
+      decal_chiffres=-11
+      while decal_chiffres<-10 or decal_chiffres>10:
+        decal_chiffres=int(input("De combien de chiffres voulez-vous que vos nombres soit décalés    (seuls les nombres entiers entre -10 et 10 seront acceptés)?\n"))
+      N_C=-1
+      while N_C<=0:
+        N_C=int(input("Un changement de décalage aura lieu tous les N caractères alors que souhaitez-vous comme nombre en N    (seuls les entiers supérieurs à 0 seront acceptés)?\n"))
+      N_Cara=0 #Unité de compte pour le changement de caractère
+      choix_alphabet_césar_progressif_N=-1
+      while choix_alphabet_césar_progressif_N<1 or choix_alphabet_césar_progressif_N>3:
+        choix_alphabet_césar_progressif_N=int(input("Quel version de l'halphabet voulez-vous utiliser ?\n""1  Version classique\n""2  Variante clavier français (AZERTY...)\n""3  Variante clavier anglais (QWERTY...)\n"))
+      if choix_alphabet_césar_progressif_N ==1:
+        minuscules="abcdefghijklmnopqrstuvwxyz"
+        majuscules="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+      elif choix_alphabet_césar_progressif_N ==2:
+        minuscules="azertyuiopqsdfghjklmwxcvbn"
+        majuscules="AZERTYUIOPQSDFGHJKLMWXCVBN"
+      else:
+        minuscules="qwertyuiopasdfghjklzxcvbnm"
+        majuscules="QWERTYUIOPASDFGHJKLZXCVBNM"
+    
+
+      minuscules=list(minuscules)
+      lenm1=len(minuscules)
+      def creat_dico1(minuscules,decal_lettres, N_Cara, N_C):
+        dico1={}
+        for i in range(lenm1):
+          if N_Cara==N_C: #Pour que N_Cara ne dépasse pas N_C
+            decal_lettres=decal_lettres+1
+            N_Cara=0
+          else:
+            N_Cara=N_Cara+1
+          if decal_lettres>lenm1:
+            decal_lettres=decal_lettres-26
+            if i+decal_lettres>=lenm1:
+             dico1[minuscules[i]]=minuscules[i+decal_lettres-26]
+            else:
+              pass
+          elif i+decal_lettres>=lenm1:
+            dico1[minuscules[i]]=minuscules[i+decal_lettres-26]
+          else:
+            dico1[minuscules[i]]=minuscules[i+decal_lettres]
+        return(dico1)
+
+      majuscules=list(majuscules)
+      lenm2=len(majuscules)
+      def creat_dico2(majuscules,decal_lettres, N_Cara, N_C):
+        dico2={}
+        for j in range(lenm2):
+          if N_Cara==N_C:
+            decal_lettres=decal_lettres+1
+            N_Cara=0
+          else:
+            N_Cara=N_Cara+1
+          if decal_lettres>lenm2:
+            decal_lettres=decal_lettres-26
+            if j+decal_lettres>=lenm2:
+             dico2[majuscules[j]]=majuscules[j+decal_lettres-26]
+            else:
+              pass
+          elif j+decal_lettres>=lenm2:
+            dico2[majuscules[j]]=majuscules[j+decal_lettres-26]
+          else:
+            dico2[majuscules[j]]=majuscules[j+decal_lettres]
+        return(dico2)
+
+      chiffres="0123456789"
+      chiffres=list(chiffres)
+      lenm3=len(chiffres)
+      def creat_dico3(chiffres,decal_chiffres, N_Cara, N_C):
+        dico3={}
+        for k in range(lenm3):
+          if N_Cara==N_C:
+            decal_chiffres=decal_chiffres+1
+            N_Cara=0
+          else:
+            N_Cara=N_Cara+1
+          if decal_chiffres>lenm3:
+            decal_chiffres=decal_chiffres-10
+            if k+decal_chiffres>=lenm3:
+             dico3[chiffres[k]]=chiffres[k+decal_chiffres-10]
+            else:
+              pass
+          elif k+decal_chiffres>=lenm3:
+            dico3[chiffres[k]]=chiffres[k+decal_chiffres-10]
+          else:
+            dico3[chiffres[k]]=chiffres[k+decal_chiffres]
+        return(dico3)
+
+      def codage(texte, dico_min, dico_maj, dico_chiffres):
+        texte_c=[]
+        for lettre in texte:
+          if (lettre in dico_min)==True:
+            texte_c.append(dico_min[lettre])
+          elif (lettre in dico_maj)==True:
+            texte_c.append(dico_maj[lettre])
+          elif (lettre in dico_chiffres)==True:
+            texte_c.append(dico_chiffres[lettre])
+          else:
+            texte_c.append(lettre)
+        return (texte_c)
+
+      mot_code=codage(encrypt, creat_dico1(minuscules,decal_lettres, N_Cara, N_C), creat_dico2(majuscules,decal_lettres, N_Cara, N_C), creat_dico3(chiffres,decal_chiffres, N_Cara, N_C))
+      mot_code="".join(mot_code)
+      print("Voici votre texte encodé (pour rappel ce code n'encrypte pas correctement et n'est dans ce sens pas terminé) :", mot_code)
+
+    
+
+
+
+    else:
+      choix_0=0
+  else:
+    pass

@@ -1,0 +1,188 @@
+#https://www.techwithtim.net/tutorials/python-programming/sudoku-solver-backtracking/part-1
+#https://www.techwithtim.net/tutorials/python-programming/sudoku-solver-backtracking/part-2
+grille16= [
+  [0,2,4,0,0,0,"C",1,"G",0,7,"A",0,0,6,3],
+  ["F","C",0,0,0,0,7,0,0,0,0,0,0,0,1,"G"],
+  [7,0,0,0,0,"E","D",0,5,0,0,0,0,8,0,0],
+  [0,0,0,"G",8,"F",0,5,"E",1,"B",0,9,0,0,0],
+  [0,0,0,"D",3,6,4,0,"B",0,0,0,0,0,0,5],
+  [0,0,2,4,"F",0,0,0,0,"A",0,0,6,0,0,"B"],
+  ["A","B",9,0,"D",0,0,7,0,0,5,0,8,0,0,0],
+  [8,0,0,6,0,0,5,"B",0,0,0,"C",2,"A",0,1],
+  [4,0,"A","F",2,0,0,0,"C",7,0,0,"D",0,0,"E"],
+  [0,0,0,1,0,4,0,0,"A",0,0,"F",0,6,2,8],
+  [2,0,0,9,0,0,"G",0,0,0,0,"E","A","B",0,0],
+  ["E",0,0,0,0,0,0,8,0,"B",2,5,"C",0,0,0],
+  [0,0,0,"A",0,8,3,"D","F",0,4,"B",1,0,0,0],
+  [0,0,"B",0,0,0,0,"F",0,"E","G",0,0,0,0,6],
+  ["G","E",0,0,0,0,0,0,0,5,0,0,0,0,"B","D"],
+  [6,"F",0,0,"B",9,0,"G",8,3,0,0,0,5,4,0]
+]
+grille2=[['Ø', 'C', 'Ø', '8', 'Ø', 'D', '5', 'Ø', '2', 'Ø', 'Ø', 'Ø', 'Ø', 'E', '9', 'A'], ['4', 'Ø', 'Ø', 'Ø', 'F', 'Ø', '4', 'Ø', 'Ø', '1', 'Ø', '6', '3', 'C', 'Ø', 'Ø'], ['Ø', '6', '3', 'Ø', '0', 'C', 'E', '9', 'Ø', 'Ø', 'Ø', 'Ø', 'Ø', 'Ø', 'Ø', 'Ø'], ['Ø', 'D', 'E', 'Ø', '3', 'Ø', '2', 'Ø', 'Ø', 'B', 'Ø', '4', '7', '6', 'Ø', '8'], ['Ø', 'Ø', 'Ø', '3', 'Ø', 'Ø', 'Ø', 'E', 'Ø', '6', 'Ø', 'Ø', '5', 'Ø', '1', 'B'], ['0', 'Ø', 'F', 'Ø', 'Ø', '8', 'Ø', 'Ø', '4', 'Ø', '5', 'Ø', 'Ø', '9', 'Ø', 'Ø'], ['Ø', 'B', '8', '0', 'Ø', '7', 'Ø', '5', '1', 'Ø', 'F', 'E', '6', 'Ø', '4', '3'], ['E', 'Ø', 'Ø', 'Ø', 'Ø', 'Ø', '8', 'F', 'B', '9', 'Ø', 'Ø', 'Ø', 'D', 'Ø', 'Ø'], ['Ø', 'Ø', 'Ø', '9', '7', 'Ø', 'Ø', 'Ø', '8', 'A', 'Ø', 'Ø', 'Ø', 'Ø', 'Ø', 'Ø'], ['Ø', 'F', '4', 'Ø', 'E', 'Ø', 'Ø', 'Ø', 'Ø', 'Ø', 'Ø', '2', 'Ø', '7', 'Ø', 'Ø'], ['Ø', 'Ø', 'Ø', 'Ø', '4', '8', '9', '3', 'Ø', 'C', 'Ø', 'Ø', 'Ø', 'Ø', '6', '2'], ['Ø', 'Ø', 'B', 'Ø', 'Ø', 'Ø', 'Ø', 'A', 'Ø', 'Ø', 'Ø', 'Ø', 'Ø', '3', 'C', '0'], ['F', 'Ø', 'Ø', 'Ø', 'Ø', '5', 'Ø', 'Ø', '6', 'Ø', '4', 'C', 'Ø', '8', 'Ø', 'Ø'], ['Ø', 'Ø', 'Ø', 'Ø', 'Ø', 'Ø', 'C', 'Ø', 'D', '7', 'A', 'Ø', 'F', 'Ø', 'Ø', '0'], ['A', 'Ø', 'C', 'Ø', 'Ø', 'Ø', 'Ø', 'Ø', '0', 'Ø', 'Ø', 'Ø', 'Ø', 'Ø', '7', '6'], ['3', 'Ø', 'D', 'Ø', '9', 'Ø', 'B', 'Ø', 'Ø', 'Ø', 'Ø', 'Ø', 'Ø', 'A', 'Ø', '5']]
+nb_varia=4
+grille = [
+[1,2,3,4],
+[0,0,0,0],
+[0,0,2,0],
+[0,0,0,0],
+]
+if nb_varia == 9:
+  reg = 3
+  au_carré = True
+elif nb_varia == 2:
+  reg = 1
+  au_carré = True
+elif nb_varia == 4:
+  reg = 2
+  au_carré = True
+elif nb_varia == 6:
+  reg =2
+  #reg = 2*3
+  au_carré = False
+elif nb_varia == 8:
+  reg =4
+  #reg = 2*4
+  au_carré = False
+elif nb_varia == 16:
+  reg = 4
+  au_carré = True
+elif nb_varia == 25:
+  reg = 5
+  au_carré = True
+else :
+  reg = 0
+  au_carré = True
+#avantage visuelle
+
+def solve (bo, nb_varia):
+  find = find_empty(bo) #voir fonction find_empty(bo) trouvable plus bas.
+  if not find :
+    return True #si le programme ne trouve plus de 0 alors cela veut dire que le sudoku est terminé.
+  else :
+    row, col = find #le rpogramme va récupérer les coordonnées du 0.
+
+  for i in range(1,nb_varia+1):
+    if valid(bo, i, (row, col)): 
+      bo[row][col] = i #si un nombre est valide il est enregistré
+
+      if solve(bo, nb_varia):
+       return True #solution trouvée
+      bo[row][col] =0
+  return False  #valeur annulée
+
+def valid(bo, num, pos):
+  #check ligne
+  for i in range (len(bo[0])):
+    if bo[pos[0]][i] == num and pos [1] != i:
+      return False
+  #check colonne
+  for i in range (len(bo[0])):
+    if bo[i][pos[1]] == num and pos [0] != i:
+      return False
+  #check régions
+  region_x= pos[1] // reg
+  region_y= pos[0] // reg
+
+  for i in range(region_y*reg, region_y*reg + reg): #étendue de la région en lignes
+    for j in range(region_x * reg, region_x*reg + reg): #étendue de la région en colonnes
+      if bo[i][j] ==num and (i,j) != pos:
+        return False
+  return True
+
+def print_grille(bo):
+  for i in range (len(bo)):
+    if i % reg ==0 and i !=0:
+      if nb_varia == 10:
+        print("- - - - - - - - - - - -") #affiche des lignes horizontales si i est égal à 3 ou 6
+      elif nb_varia == 4:
+        print("- - - - - -")
+      elif nb_varia == 2:
+        print("- - - -")
+      elif nb_varia == 6:
+        print("- - - - - - - - -")
+      elif nb_varia == 9:
+        print("- - - - - - - - - -")
+      elif nb_varia == 16:
+        print("- - - - - - - - - - - - - - - - - -")
+      elif nb_varia == 25:
+        print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
+      else:
+        pass
+
+    for j in range(len(bo[0])):
+      if j % reg ==0 and j!=0:
+        print(" | ", end="") #affiche des lignes verticales si j est égal à 3 ou 6
+      elif j==nb_varia-1: #si arrivé à fin de ligne
+        print (bo[i][j])
+      else:
+        print(str(bo[i][j]) + " ", end="")
+
+def find_empty(bo): 
+  for i in range (len(bo)):
+    for j in range (len(bo[0])):
+      if bo[i][j] == 0:
+        return (i, j)
+  return None #si la fonction trouve un 0 elle renvoie son emplacement
+
+symboles="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+lettres="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+def convertion(nb):
+  for i in range (36):
+    if nb == symboles[i]:
+      return i #i commencant par 0 A est le 10ème symbole
+    else:
+      pass
+
+#source : Séquence 7, séance 7 : entrainement au BAC
+def represente(n,b):
+  return symboles[n] if n <= b else represente(n//b, b)+symboles[n%b]
+
+print_grille(grille)
+
+if nb_varia>9:
+  for i in range (1,nb_varia+1):
+    for j in range (1,nb_varia+1):
+      if (str(grille[i-1][j-1]) in lettres) == True:
+        grille[i-1][j-1] = convertion(grille[i-1][j-1])
+        #grille[i-1][j-1] = grille[i-1][j-1]+1
+      elif grille[i-1][j-1] == "Ø":
+        grille[i-1][j-1]= 0
+      else:
+        pass
+else:
+  pass
+solve(grille, nb_varia)
+
+if nb_varia == 10:
+  print("_______________________\n")
+elif nb_varia == 4:
+  print("___________\n")
+elif nb_varia == 2:
+  print("_______\n")
+elif nb_varia == 6:
+  print("_________________\n")
+elif nb_varia == 9:
+  print("__________________\n")
+elif nb_varia == 16:
+  print("__________________________________\n")
+elif nb_varia == 25:
+  print("__________________________________________\n")
+else:
+  print("__________________\n")
+
+if nb_varia>9:
+  for i in range (1,nb_varia+1):
+    for j in range (1,nb_varia+1):
+      if i-1 >= 0 and j-1 >= 0 and i-1 < len(grille) and j-1 < len(grille[0]): #fait pour éviter les problèmes
+        if grille[i-1][j-1] !=0: #pour les tests
+          #grille[i-1][j-1] = grille[i-1][j-1]-1
+          #fait pour les générateurs hexadécimaux allant de 1 à G au leiu de 0 à F
+          grille[i-1][j-1] = represente((grille[i-1][j-1]), nb_varia)
+          pass
+        else:
+          grille[i-1][j-1]= "Ø"
+      else:
+        pass
+else:
+  pass
+print_grille(grille)

@@ -1,0 +1,32 @@
+txt=input("Veuillez entrez le texte que vous voulez (minuscules et minuscules uniquement).")
+minuscules="abcdefghijklmnopqrstuvwxyz"
+
+def harmonistaion_min(Harmoni_min):
+  Harmoni_min=Harmoni_min.lower()   #Transforme les minuscules en minuscule
+  Harmoni_min=list(Harmoni_min)
+  i=0
+  while i<len(Harmoni_min):
+    if (Harmoni_min[i]=='î' or Harmoni_min[i]=='ï' or Harmoni_min[i]=='ì' or Harmoni_min[i]=='í'):
+      Harmoni_min[i]='i'
+    elif (Harmoni_min[i]=='û' or Harmoni_min[i]=='ü' or Harmoni_min[i]=='ù' or Harmoni_min[i]=='ú'):
+      Harmoni_min[i]='u'
+    elif (Harmoni_min[i]=='ö' or Harmoni_min[i]=='ô' or Harmoni_min[i]=='ó' or Harmoni_min[i]=='ò' or Harmoni_min[i]=='õ'):
+      Harmoni_min[i]='o'
+    elif (Harmoni_min[i]=='ñ'):
+      Harmoni_min[i]='n'
+    elif (Harmoni_min[i]=='ê' or Harmoni_min[i]=='ë' or Harmoni_min[i]=='é' or Harmoni_min[i]=='è'):
+      Harmoni_min[i]='e'
+    elif (Harmoni_min[i]=='ç'):
+      Harmoni_min[i]='c'
+    elif (Harmoni_min[i]=='à'or Harmoni_min[i]=='á' or Harmoni_min[i]=='ä'or Harmoni_min[i]=='â' or Harmoni_min[i]=='ã' or Harmoni_min[i]=='å'):
+      Harmoni_min[i]='a'
+    elif (Harmoni_min[i] in minuscules)==False:
+      del Harmoni_min[i]
+      i=i-1
+    else:
+      pass
+    i=i+1
+  Harmoni_min = "".join(Harmoni_min)  #Transforme la liste en chaine de caractères
+  return(Harmoni_min)
+Harmonie=harmonistaion_min(txt)
+print(mot_code)

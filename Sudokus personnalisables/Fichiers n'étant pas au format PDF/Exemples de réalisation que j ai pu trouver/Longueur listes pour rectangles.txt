@@ -1,0 +1,11 @@
+#https://www.cours-gratuit.com/tutoriel-python/tutoriel-python-transformer-une-liste-en-matrice-une-matrice-en-liste
+#J'ai utilisé ce site pour les lignes servant à détecter que des listes sont plus grandes que d'autre et pour ajouter les 0.
+
+# Créer la liste des listes
+liste = [[1, 2, 3], [4, 5], [6, 7, 8]]
+# Calculer la longueur de la liste maximale
+n = len(max(liste, key=len))
+# Faire des listes de longueur égale
+liste_2 = [x + [None]*(n-len(x)) for x in liste]
+print(liste_2)
+# [[1, 2, 3, None], [4, 5, None, None], [6, 7, 8]]

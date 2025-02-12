@@ -1,0 +1,92 @@
+#!/usr/bin/bash
+
+# VERSION 5.5
+
+
+# pull manuellement
+docker container run -d -ti --rm --name excel2csv bigpapoo/sae103-excel2csv
+# renommage des fichier à espace
+mv Sports\ emblématiques.data Sports_emblematiques.data
+mv JO\ Paris.txt JO_Paris.txt
+mv Tableau\ des\ médailles\ v2.xlsx Tableau_des_medailles_v2.xlsx
+
+docker container cp ./ excel2csv:data
+docker container cp scripts/drapeaux.php excel2csv:data
+docker container cp scripts/drapeaux excel2csv:data
+docker container cp scripts/iso.txt excel2csv:data
+docker container cp scripts/saut excel2csv:data
+docker container cp scripts/section excel2csv:data
+docker container cp scripts/section.php excel2csv:data
+docker container cp scripts/init excel2csv:data
+docker container cp scripts/tableau2 excel2csv:data
+docker container cp scripts/supprLignes.php excel2csv:data
+
+# perms
+docker container exec excel2csv chmod +x ../data/init
+docker container exec excel2csv ../data/init
+docker container exec excel2csv chmod +x ../data/section
+docker container exec excel2csv chmod +x ../data/section.php
+docker container exec excel2csv chmod +x ../data/saut
+docker container exec excel2csv chmod +x ../data/drapeaux
+docker container exec excel2csv chmod +x ../data/tableau2
+docker container exec excel2csv chmod +x ../data/supprLignes.php
+# exécutions
+docker container exec excel2csv ../data/saut
+docker container exec excel2csv ../data/section
+docker container exec excel2csv ../data/drapeaux
+docker container exec excel2csv ../data/tableau2
+# fin
+docker container cp excel2csv:data/depot/. ../depot
+# docker container attach excel2csv
+docker container stop excel2csv
+
+
+# remise des noms originaux
+mv Sports_emblematiques.data Sports\ emblématiques.data
+mv JO_Paris.txt JO\ Paris.txt
+mv Tableau_des_medailles_v2.xlsx Tableau\ des\ médailles\ v2.xlsx
+rm ../paysDrapeaux/.
+rmdir ../paysDrapeaux
+mkdir ../paysDrapeaux
+
+
+docker container run -d -ti --rm --name get bigpapoo/sae103-wget
+mv ../depot/commandes scripts
+docker container cp scripts/commandes get:data
+docker container exec get chmod +x ../data/commandes
+docker container exec get ../data/commandes
+docker container cp get:data/. ../paysDrapeaux
+rm ../paysDrapeaux/commandes
+docker container stop get
+
+docker container run -d -ti --rm --name html2pdf bigpapoo/sae103-html2pdf
+mv ../depot/Tableau_des_medailles_v2.csv scripts
+cp scripts/equipe_olympique_refugies.webp ../paysDrapeaux
+docker container cp scripts/logoJO.png html2pdf:data/
+docker container cp scripts/iso.txt html2pdf:data/
+docker container cp scripts/Tableau_des_medailles_v2.csv html2pdf:data/
+docker container cp scripts/surprise html2pdf:data/
+docker container cp scripts/surprise.php html2pdf:data/
+docker container cp scripts/surprise2.php html2pdf:data/
+docker container cp scripts/geneHTML.php html2pdf:data/
+docker container cp ../paysDrapeaux html2pdf:data/
+docker container exec html2pdf chmod +x ../data/surprise
+docker container exec html2pdf ../data/surprise
+docker container exec html2pdf weasyprint ../data/a.html ../data/a.pdf
+docker container cp html2pdf:data/a.pdf ../depot/
+docker container stop html2pdf
+
+
+mv départ-triathlon.jpg depart-triathlon.jpg
+docker container run -d -ti --rm --name imagick bigpapoo/sae103-imagick
+docker container cp ./teddy-riner.webp imagick:data
+docker container cp ./beach-volley.png imagick:data
+docker container cp ./podium.png imagick:data
+docker container cp ./depart-triathlon.jpg imagick:data
+docker container cp scripts/images imagick:data/
+docker container exec imagick chmod +x ../data/images
+docker container exec imagick ../data/images
+docker container cp imagick:data/. ../depot
+rm ../depot/images
+docker container stop imagick
+mv depart-triathlon.jpg départ-triathlon.jpg

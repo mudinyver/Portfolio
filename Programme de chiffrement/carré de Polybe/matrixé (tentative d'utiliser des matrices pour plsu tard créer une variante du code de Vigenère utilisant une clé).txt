@@ -1,0 +1,27 @@
+carre=[['a','b','c','d','e'],['f','g','h','i/j','k'],['l','m','n','o','p'],['q','r','s','t','u'],['v','w','x','y','z']]
+def codage_lettre(lettre):
+    codage=0
+    for i in range(5):
+        for j in range(5):
+            if carre[i][j]==lettre:
+                codage=10*(i+1)+j+1
+    return(codage)
+
+def decodage_lettre(codage):
+    i=codage//10-1
+    j=codage%10-1
+    return(carre[i][j])
+
+def codage_texte(texte):
+    codage=0
+    for i in range(len(texte)):
+        lettre=texte[i]
+        print(lettre)
+        if (lettre=='i' or lettre=='j'):
+            lettre='i/j'
+        print(lettre,codage_lettre(lettre))
+        codage=codage*100+codage_lettre(lettre)
+    return(codage)
+
+        
+print(codage_texte('banane'))

@@ -1,0 +1,3 @@
+### Le modpack est disponible sur Forge, vous pouvez cliquer [ici](https://www.curseforge.com/minecraft/modpacks/tinkers-fire/files/all?page=1&pageSize=20&showAlphaFiles=hide) pour aller sur la page du modpack.
+
+### Le répertoire Git que j'ai crée à l'époque n'est plus à jour et j'ai perdu le code source néanmoins si vous souhaitez voir le code source de la première version fonctionnelle du modpack vous pouvez cliquer sur [ce lien](https://github.com/Maqua66/Tinkers-Fire).

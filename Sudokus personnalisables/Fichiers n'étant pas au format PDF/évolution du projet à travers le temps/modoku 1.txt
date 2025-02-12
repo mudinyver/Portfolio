@@ -1,0 +1,128 @@
+#https://www.techwithtim.net/tutorials/python-programming/sudoku-solver-backtracking/part-1
+#https://www.techwithtim.net/tutorials/python-programming/sudoku-solver-backtracking/part-2
+grille= [
+  [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],
+  [3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,1,0,0,0,0,0,0,0,7,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,11],
+  [0,0,0,0,0,8,0,0,0,0,5,0,0,0,0,0],
+  [0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,11,0,0,0,0,0,0,8,0,0,0,0,0,0,0],
+  [0,0,0,0,0,15,0,0,0,0,0,0,0,0,0,3],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,9,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,0],
+  [0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,1]
+]
+nb_varia=16
+if nb_varia == 9:
+  reg = 3
+elif nb_varia == 2:
+  reg = 1
+elif nb_varia == 4:
+  reg = 2
+elif nb_varia == 6:
+  reg =2
+  #reg = 2*3
+  pass
+elif nb_varia == 8:
+  reg =4
+  #reg = 2*4
+  pass
+elif nb_varia == 16:
+  reg = 4
+elif nb_varia == 25:
+  reg = 5
+else :
+  reg = 0
+#avantage visuelle
+
+def solve (bo, nb_varia):
+  find = find_empty(bo) #voir fonction find_empty(bo) trouvable plus bas.
+  if not find :
+    return True #si le programme ne trouve plus de 0 alors cela veut dire que le sudoku est terminé.
+  else :
+    row, col = find #le rpogramme va récupérer les coordonnées du 0.
+
+  for i in range(1,nb_varia+1):
+    if valid(bo, i, (row, col)): 
+      bo[row][col] = i #si un nombre est valide il est enregistré
+
+      if solve(bo, nb_varia):
+       return True #solution trouvée
+      bo[row][col] =0
+  return False  #valeur annulée
+
+def valid(bo, num, pos):
+  #check ligne
+  for i in range (len(bo[0])):
+    if bo[pos[0]][i] == num and pos [1] != i:
+      return False
+  #check colonne
+  for i in range (len(bo[0])):
+    if bo[i][pos[1]] == num and pos [0] != i:
+      return False
+  #check régions
+  region_x= pos[1] // reg
+  region_y= pos[0] // reg
+
+  for i in range(region_y*reg, region_y*reg + reg): #étendue de la région en lignes
+    for j in range(region_x * reg, region_x*reg + reg): #étendue de la région en colonnes
+      if bo[i][j] ==num and (i,j) != pos:
+        return False
+  return True
+
+def print_grille(bo):
+  for i in range (len(bo)):
+    if i % reg ==0 and i !=0:
+      if nb_varia == 9:
+        print("- - - - - - - - - - - -") #affiche des lignes horizontales si i est égal à 3 ou 6
+      elif nb_varia == 4:
+        print("- - - - - -")
+      elif nb_varia == 2:
+        print("- - - -")
+      elif nb_varia == 6:
+        print("- - - - - - - - -")
+      elif nb_varia == 8:
+        print("- - - - - - - - - -")
+      elif nb_varia == 16:
+        print("- - - - - - - - - - - - - - - - - - - - -")
+      elif nb_varia == 25:
+        print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
+
+    for j in range(len(bo[0])):
+      if j % reg ==0 and j!=0:
+        print(" | ", end="") #affiche des lignes verticales si j est égal à 3 ou 6
+      if j==nb_varia-1: #si arrivé à fin de ligne
+        print (bo[i][j])
+      else:
+        print(str(bo[i][j]) + " ", end="")
+
+def find_empty(bo): 
+  for i in range (len(bo)):
+    for j in range (len(bo[0])):
+      if bo[i][j] == 0:
+        return (i, j)
+  return None #si la fonction trouve un 0 elle renvoie son emplacement
+
+print_grille(grille)
+solve(grille, nb_varia)
+if nb_varia == 9:
+  print("_______________________\n")
+elif nb_varia == 4:
+  print("___________\n")
+elif nb_varia == 2:
+  print("_______\n")
+elif nb_varia == 6:
+  print("_________________\n")
+elif nb_varia == 8:
+  print("__________________\n")
+elif nb_varia == 16:
+  print("________________________________\n")
+elif nb_varia == 25:
+  print("__________________________________________\n")
+print_grille(grille)

@@ -1,0 +1,40 @@
+minuscules="abcdefghijklmnopqrstuvwxyz"
+minuscules=list(minuscules)
+lenm=len(minuscules)
+decal=3
+def creat_dico1(minuscules,decal):
+  dico1={}
+  for i in range(lenm):
+    if i+decal>=lenm:
+      dico1[minuscules[i]]=minuscules[i+decal-26]
+    else:
+      dico1[minuscules[i]]=minuscules[i+decal]
+  return(dico1)
+
+majuscules="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+majuscules=list(majuscules)
+lenm=len(majuscules)
+decal=3
+def creat_dico2(majuscules,decal):
+  dico2={}
+  for i in range(lenm):
+    if i+decal>=lenm:
+      dico2[majuscules[i]]=majuscules[i+decal-26]
+    else:
+      dico2[majuscules[i]]=majuscules[i+decal]
+  return(dico2)
+
+def codage(texte,dico, dico_a):
+  texte_c=[]
+  for lettre in texte:
+    if (lettre in dico)==True:
+      texte_c.append(dico[lettre])
+    elif (lettre in dico_a)==True:
+      texte_c.append(dico_a[lettre])
+    else:
+      texte_c.append(lettre)
+  return (texte_c)
+
+mot_code=codage("Choix",creat_dico1(minuscules,decal),creat_dico2(majuscules,decal))
+mot_code="".join(mot_code)
+print(mot_code)

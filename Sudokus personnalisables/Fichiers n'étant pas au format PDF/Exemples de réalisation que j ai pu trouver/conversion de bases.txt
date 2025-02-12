@@ -1,0 +1,7 @@
+#source : Séquence 7, séance 7 : entrainement au BAC
+symboles="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+def represente(n,b):
+  return symboles[n] if n < b else represente(n//b, b)+symboles[n%b]
+
+role =  represente (107,16)
+print (role)

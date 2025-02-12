@@ -1,0 +1,4 @@
+#!/bin/bash
+cd ../data/
+nb_lignes=$(tr -s '\n' < JO_Paris.txt)
+echo "$nb_lignes" >> depot/JO_Paris.txt

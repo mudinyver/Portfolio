@@ -1,0 +1,6 @@
+#!/bin/bash
+cd ../data
+touch ../data/commandes
+chmod +x drapeaux.php
+nb=$(../data/drapeaux.php)
+mv ../data/commandes depot/commandes

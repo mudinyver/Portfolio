@@ -1,0 +1,20 @@
+def codage(texte):
+  choix_Polybe_chiffre_ordre=-1
+  while choix_Polybe_chiffre_ordre!=1 and  choix_Polybe_chiffre_ordre!=2 :
+    choix_Polybe_chiffre_ordre=int(input("Quel ordre voulez-vous ?\n""1  Ordre ligne-colonne (ordre classique)\n""2  Ordre colonne-ligne\n"))
+    if choix_Polybe_chiffre_ordre ==1 :
+      dicocarrePolybeChiffre = {'A':11,'B':12,'C':13,'D':14,'E':15,'F':16,'G':21,'H':22,'I':23,'J':24,'K':25,'L':26,'M':31,'N':32,'O':33,'P':34,'Q':35,'R':36,'S':41,'T':42,'U':43,'V':44,'W':45,'X':46,'Y':51,'Z':52,'0':53,'1':54,'2':55,'3':56,'4':61,'5':62,'6':63,'7':64,'8':65,'9':66}
+    else :
+      dicocarrePolybeChiffre = {'A':11,'B':21,'C':31,'D':41,'E':51,'F':61,'G':12,'H':22,'I':32,'J':42,'K':52,'L':62,'M':13,'N':23,'O':33,'P':43,'Q':53,'R':63,'S':14,'T':24,'U':34,'V':44,'W':54,'X':64,'Y':15,'Z':25,'0':35,'1':45,'2':55,'3':65,'4':16,'5':26,'6':36,'7':46,'8':56,'9':66}
+  texte_c=[]
+  texte=texte.upper()   #Transforme les minuscules en majuscules
+  for lettre in texte:
+    if lettre in dicocarrePolybeChiffre:
+      texte_c.append(dicocarrePolybeChiffre[lettre])
+    else:
+      texte_c.append(lettre)
+  return (texte_c)
+
+mot_code=codage("j'aimerais 01299999 que ce code me renvoie des nombres")
+#mot_code="".join(mot_code)
+print("Voici votre texte encodé:", mot_code)

@@ -1,0 +1,13 @@
+majuscules="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+minuscules="abcdefghijklmnopqrstuvwxyz"
+txt=input("Veuillez entrez le texte que vous voulez (majuscules et minuscules uniquement).")
+txt=txt.upper()   #Transforme les minuscules en majuscules
+txt=list(txt)
+i=0
+while i<len(txt):
+    if ((txt[i] in majuscules)or(txt[i] in minuscules))==False:
+        del txt[i]
+        i=i-1
+    i=i+1
+txt = "".join(txt)  #Transforme la liste en chaine de caractères
+print(txt)

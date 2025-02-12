@@ -1,0 +1,81 @@
+decal_lettres=-27
+while decal_lettres<-26 or decal_lettres>26:
+  decal_lettres=int(input("De combien de lettres voulez-vous que votre phrase soit décalé    (seuls les nombres entiers entre -26 et 26 seront acceptés)?\n"))
+decal_chiffres=-11
+while decal_chiffres<-10 or decal_chiffres>10:
+  decal_chiffres=int(input("De combien de chiffres voulez-vous que vos nombres soit décalés    (seuls les nombres entiers entre -10 et 10 seront acceptés)?\n"))
+    
+
+minuscules="abcdefghijklmnopqrstuvwxyz"
+minuscules=list(minuscules)
+lenm1=len(minuscules)
+def creat_dico1(minuscules,decal_lettres):
+  dico1={}
+  for i in range(lenm1):
+    decal_lettres=decal_lettres-1
+    if decal_lettres<-26:
+      decal_lettres=decal_lettres+26
+      if i+decal_lettres>=lenm1:
+       dico1[minuscules[i]]=minuscules[i+decal_lettres-26]
+      else:
+        pass
+    elif i+decal_lettres>=lenm1:
+      dico1[minuscules[i]]=minuscules[i+decal_lettres-26]
+    else:
+      dico1[minuscules[i]]=minuscules[i+decal_lettres]
+  return(dico1)
+
+majuscules="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+majuscules=list(majuscules)
+lenm2=len(majuscules)
+def creat_dico2(majuscules,decal_lettres):
+  dico2={}
+  for j in range(lenm2):
+    decal_lettres=decal_lettres-1
+    if decal_lettres<-26:
+      decal_lettres=decal_lettres+26
+      if j+decal_lettres>=lenm2:
+       dico2[majuscules[j]]=majuscules[j+decal_lettres-26]
+      else:
+        pass
+    elif j+decal_lettres>=lenm2:
+      dico2[majuscules[j]]=majuscules[j+decal_lettres-26]
+    else:
+      dico2[majuscules[j]]=majuscules[j+decal_lettres]
+  return(dico2)
+
+chiffres="0123456789"
+chiffres=list(chiffres)
+lenm3=len(chiffres)
+def creat_dico3(chiffres,decal_chiffres):
+  dico3={}
+  for k in range(lenm3):
+    decal_chiffres=decal_chiffres-1
+    if decal_chiffres<-10:
+      decal_chiffres=decal_chiffres+10
+      if k+decal_chiffres>=lenm3:
+       dico3[chiffres[k]]=chiffres[k+decal_chiffres-10]
+      else:
+        pass
+    elif k+decal_chiffres>=lenm3:
+      dico3[chiffres[k]]=chiffres[k+decal_chiffres-10]
+    else:
+      dico3[chiffres[k]]=chiffres[k+decal_chiffres]
+  return(dico3)
+
+def codage(texte, dico_min, dico_maj, dico_chiffres):
+  texte_c=[]
+  for lettre in texte:
+    if (lettre in dico_min)==True:
+      texte_c.append(dico_min[lettre])
+    elif (lettre in dico_maj)==True:
+      texte_c.append(dico_maj[lettre])
+    elif (lettre in dico_chiffres)==True:
+      texte_c.append(dico_chiffres[lettre])
+    else:
+      texte_c.append(lettre)
+  return (texte_c)
+
+mot_code=codage("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", creat_dico1(minuscules,decal_lettres), creat_dico2(majuscules,decal_lettres), creat_dico3(chiffres,decal_chiffres))
+mot_code="".join(mot_code)
+print("Voici votre texte encodé (ce code souffre du même problème que les autres codes césar progressif et n'a en plus de cela pas grand intérêt) :", mot_code)

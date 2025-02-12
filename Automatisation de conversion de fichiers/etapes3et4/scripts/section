@@ -1,0 +1,4 @@
+#!/bin/bash
+cd ../data/
+chmod +x ../data/section.php
+nb=$(../data/section.php)

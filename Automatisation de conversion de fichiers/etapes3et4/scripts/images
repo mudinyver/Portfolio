@@ -1,0 +1,10 @@
+#!/bin/bash
+cd ../data
+convert ../data/teddy-riner.webp -resize 340x191 ../data/teddy_rinner.webp
+convert ../data/beach-volley.png -resize 960x600 -quality 3 ../data/beach-volley.webp
+convert ../data/podium.png -resize 960x600 -quality 3 ../data/podium.webp
+convert ../data/depart-triathlon.jpg -resize 960x600 -quality 3 ../data/depart-triathlon.webp
+rm ../data/teddy-riner.webp
+rm ../data/beach-volley.png
+rm ../data/podium.png
+rm ../data/depart-triathlon.jpg
