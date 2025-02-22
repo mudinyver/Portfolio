@@ -179,6 +179,7 @@ Utilisation d’un site en ligne dont j’ai oublié le nom. Programmer avec Pyt
 
 **Résultats :**
 Le programme de chiffrement a été terminé avec succès en avance. J’ai donc ajouté une multitude de variantes dont une qui n’est pas fonctionnelle (le chiffrement de césar progressif).
+
 **Aptitudes personnelles développées :**
 Organisation du travail, créativité, résolution de problèmes.
 
