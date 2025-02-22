@@ -13,7 +13,7 @@ Modification d’un jeu snake préexistant, en 3 étapes :
 - création d’un deuxième serpent
 
 **Cadre :**
-Réaliser dans le cadre d’un projet universitaire en binôme.
+Réalisé dans le cadre d’un projet universitaire en binôme.
 
 **Technologies :**
 Utilisation de Visual Studio Code et du Terminal. Programmé avec le langage C.
@@ -39,7 +39,7 @@ Création d’une base de donnée, en plusieurs étapes :
  - création de la base de donnée
 
 **Cadre :**
-Réaliser dans le cadre d’un projet universitaire en binôme.
+Réalisé dans le cadre d’un projet universitaire en binôme.
 
 **Technologies :**
 Utilisation de Visual Studio Code. Programmé avec le langage Tutorial D.
@@ -65,7 +65,7 @@ Conversion de fichiers, réalisé en plusieurs phases :
  - automatisation des conversions
 
 **Cadre :**
-Réaliser dans le cadre d’un projet universitaire avec une équipe de quatre.
+Réalisé dans le cadre d’un projet universitaire avec une équipe de quatre.
 
 
 **Technologies :**
@@ -96,7 +96,7 @@ Création d’un site internet, réalisé en plusieurs phases :
 Nous étions 4 à faire le site. Chacun de nous s’occupait d’une page. **Je m’occupais de la page *epreuve.html***
 
 **Cadre :**
-Réaliser dans le cadre d’un projet universitaire avec une équipe de quatre.
+Réalisé dans le cadre d’un projet universitaire avec une équipe de quatre.
 
 **Technologies :**
 Utilisation de Figma, Canva et Visual Studio Code. Programmé avec du HTML et du CSS.
@@ -126,7 +126,7 @@ Création d’un jeu snake, en 5 étapes :
  Un cahier de tests est créé à chaque étape
 
 **Cadre :**
-Réaliser dans le cadre d’un projet universitaire en monôme.
+Réalisé dans le cadre d’un projet universitaire en monôme.
 
 **Technologies :**
 Utilisation de Visual Studio Code et du Terminal. Programmé avec le langage C.
@@ -149,7 +149,7 @@ Création d’un programme permettant de générer et de résoudre des sudokus.
  Réalisé en 5 mois et incluant un carnet de bord, une définition du projet, un cahier de tests, des objectifs opérationnels et un mode d’emploi.
 
 **Cadre :**
-Réaliser dans le cadre d’un projet scolaire en monôme via le CNED (projet annuel), en terminale.
+Réalisé dans le cadre d’un projet scolaire en monôme via le CNED (projet annuel), en terminale.
 
 **Technologies :**
 Utilisation du site en ligne ReplIt. Programmé en Python.
@@ -172,7 +172,7 @@ Création d’un programme permettant de chiffrer un texte via l’utilisation d
  Réalisé en 5 mois et incluant un carnet de bord, une définition du projet, un cahier de tests, des objectifs opérationnels et un mode d’emploi.
 
 **Cadre :**
-Réaliser dans le cadre d’un projet scolaire en monôme via le CNED (projet annuel) en première.
+Réalisé dans le cadre d’un projet scolaire en monôme via le CNED (projet annuel) en première.
 
 **Technologies :**
 Utilisation d’un site en ligne dont j’ai oublié le nom. Programmer avec Python.
