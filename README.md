@@ -1,6 +1,141 @@
 # Portfolio
 **Portfolio de Mael UDIN--YVER, IUT de Lannion**  
 
+## **Intitulé du projet :**Base de données sur l’inscription à l’IUT
+
+**Année :** 2024/2025
+
+**Description succincte du projet :**
+
+Traduire un schéma relationnel en scripts PostgreSQL, peupler la base de données fournise par les enseigants et effectuer une analyse des données.
+                   
+**Cadre :**
+Réalisé dans le cadre d’un projet universitaire en trinôme.
+
+**Technologies :**
+Utilisation de Visual Studio Code, de SQLWorkbench et de Spyder. Programmé avec PostgreSQL et Python.
+
+**Résultats :**
+La base de données a été correctement peuplée et l’analyse des données a été effectué. Il est important de noter que l’analyse est de nature humoristique.
+
+**Aptitudes personnelles développées :**
+Mise en application ce qui a été vu en cours, c'est-à-dire, comment concevoir une base de données à partir d'un cahier des charges et comment l'interroger. Utilisation avancée des wbImport afin d’importer des données de fichiers dans une base de données et de recouper les différentes informations.
+
+---
+
+## **Intitulé du projet :** Suivi du paiement des membres d'une association
+
+**Année :** 2024/2025
+
+**Description succincte du projet :**
+
+Conception et création d'interfaces et d'algortithmes permettant de trier & de filter une liste, de modifier & de supprimer des paiements, de générer du contenu pour un mail de rappel ou une facture annuelle et de désinscrire des élèves à des cours en cas de non-paiement.
+                   
+**Cadre :**
+Réalisé dans le cadre d’un projet universitaire en trinôme.
+
+**Technologies :**
+Utilisation de Visual Studio Code, de Scene Builder et de diagrammes UML. Programmé avec Java et JavaFX.
+
+**Résultats :**
+Le projet est fini mais nous n'avons pas eu le temps de le peaufiner en raison de l'absence prolongée d'un de nos membres. La modification du paiement ne fonctionne pas et nous n'avons pas eu le temps de faire ce que nous souhaitions pour la génération du mail. À part cela, le reste est opérationnel.
+
+**Aptitudes personnelles développées :**
+Réalisation d’un triage à plusieurs paramètres et de multiples priorités. Réalisation d’un projet de création d'interfaces avec une équipe.
+
+---
+
+## **Intitulé du projet :** Découverte de serveur Apache HTTP
+
+**Année :** 2024/2025
+
+**Description succincte du projet :**
+
+Suivre des instructions afin de créer un serveur Apache HTTP fonctionnel, avec une possibilité de connexion et une présence de scripts PHP divers.
+                   
+**Cadre :**
+Réalisé dans le cadre d’un projet universitaire en trinôme.
+
+**Technologies :**
+ Utilisation de Visual Studio Code, d'une machine virtuelle, de serveur Apache HTTP et de ses modules MySQL et PHP. Programmé avec du serveur Apache HTTP et les langages MySQL et PHP.
+
+**Résultats :**
+Feuille de réponses aux instructions (avec captures d'écran).
+
+**Aptitudes personnelles développées :**
+Création d’un serveur Apache HTML rudimentaire.
+
+---
+
+## **Intitulé du projet :** Gestion du projet de Suivi du paiement des membres d'une association
+
+**Année :** 2024/2025
+
+**Description succincte du projet :**
+
+Rédiger une note de cadrage et une Spécification des Exigences du Logiciel (SEL) à partir d'un sujet, faire un diagramme des tâche, une matrice des responsabilités (RACI), une estimation des charges et deux diagrammes de Gantt (un prévisionnel et un réel).
+                   
+**Cadre :**
+Réalisé dans le cadre d’un projet universitaire en trinôme.
+
+**Technologies :**
+Utilisation de project Libre.
+
+**Résultats :**
+En résultats nous avons un diaporama et un PDF contenant les rapports générés via le Gantt
+
+**Aptitudes personnelles développées :**
+Conception d’une note de cadrage, d’une SEL et d’une estimation des charges. Mise en application de mes connaissances pour faire un diagramme de tâche, une matrice RACI et des diagrammes de Gantt.
+
+---
+
+## **Intitulé du projet :**  Création d’un team-building
+
+**Année :** 2024/2025
+
+**Description succincte du projet :**
+
+Identification d'une entreprise ciblée, des valeurs de la journée, d'un espace géographique, d'activités et d'un budget. Création d'une infographie, d'une facture et d'une vidéo.
+
+**Cadre :**
+Réalisé dans le cadre d’un projet universitaire en trinôme.
+
+**Technologies :**
+Utilisation d'Open Camera et de DaVinci Resolve (applications permettant de filmer et de monter une vidéo).
+
+**Résultats :**
+Diaporama incluant la vidéo ainsi que les livrables précédents.
+
+**Aptitudes personnelles développées :**
+Techniques de conception d’infographie et dèveloppement du sens du travail en équipe.
+
+---
+
+## **Intitulé du projet :**  Algorithmes sur des nuages de point
+
+**Année :** 2024/2025
+
+**Description succincte du projet :**
+
+Conception et création des algortithmes Knn (3 variantes à créer) et Kmeans en 3 étapes :
+- étude du fonctionnement des algorithmes,
+- programmation des algorithmes,
+- rédaction d'un rapport sur le projet
+
+**Cadre :**
+Réalisé dans le cadre d’un projet universitaire en trinôme.
+
+**Technologies :**
+Utilisation de Visual Studio Code et du Terminal.  Programmé avec le langage Python ainsi que les librairies sklearn, matpotlib, random et collection.
+
+**Résultats :**
+Les algorithmes sont opérationnels et présentés dans le rapport.
+
+**Aptitudes personnelles développées :**
+Créativité, sens du travail en équipe, résolution de problèmes divers.
+
+---
+
 ## **Intitulé du projet :**  Snake en C (partie 2)
 
 **Année :** 2024/2025
@@ -210,4 +345,3 @@ Le GitHub n’est pas à jour et j’ai perdu le code source mais le modpack est
 
 **Aptitudes personnelles développées :**
 Organisation du travail, créativité, résolution de problèmes.
-
