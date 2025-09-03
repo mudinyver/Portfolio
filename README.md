@@ -1,7 +1,7 @@
 # Portfolio
 **Portfolio de Mael UDIN--YVER, IUT de Lannion**  
 
-## **Intitulé du projet :**Base de données sur l’inscription à l’IUT
+## **Intitulé du projet :** Base de données sur l’inscription à l’IUT
 
 **Année :** 2024/2025
 
