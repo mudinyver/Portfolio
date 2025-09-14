@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.CtrlChxTriage">
+   <center>
+      <VBox alignment="TOP_CENTER" prefHeight="350.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <VBox prefHeight="200.0">
+                     <children>
+                        <Label prefHeight="35.0" text="Ne prendre en compte que les danses :">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <CheckBox fx:id="cbDansesStandards" mnemonicParsing="false" prefHeight="25.0" selected="true" text="standards">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </CheckBox>
+                        <CheckBox fx:id="cbDansesLatines" mnemonicParsing="false" prefHeight="25.0" selected="true" text="latines">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </CheckBox>
+                        <CheckBox fx:id="cbDansesRock" mnemonicParsing="false" prefHeight="35.0" selected="true" text="rock">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </CheckBox>
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox prefHeight="200.0">
+                     <children>
+                        <Label prefHeight="35.0" text="Ne prendre en compte que les danses de niveau :">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <CheckBox fx:id="cbDanses1" mnemonicParsing="false" prefHeight="25.0" selected="true" text="1">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </CheckBox>
+                        <CheckBox fx:id="cbDanses2" mnemonicParsing="false" prefHeight="25.0" selected="true" text="2">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </CheckBox>
+                        <CheckBox fx:id="cbDanses3" mnemonicParsing="false" prefHeight="35.0" selected="true" text="3">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </CheckBox>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="50.0" />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="50.0" prefWidth="200.0">
+               <children>
+                  <VBox prefHeight="200.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" cacheShape="false" centerShape="false" fillHeight="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" prefWidth="600.0" scaleShape="false">
+                           <children>
+                              <Label prefWidth="200.0" text="Tri principal : " textAlignment="RIGHT">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font></Label>
+                              <ComboBox fx:id="cbPrincipal" prefWidth="250.0" promptText="Trier sur...">
+                                 <HBox.margin>
+                                    <Insets left="25.0" right="10.0" />
+                                 </HBox.margin>
+                              </ComboBox>
+                              <CheckBox fx:id="principalDecroit" contentDisplay="RIGHT" mnemonicParsing="false" prefWidth="150.0" text="Décroissant">
+                                 <HBox.margin>
+                                    <Insets left="50.0" right="25.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </CheckBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="50.0">
+                           <children>
+                              <Label prefWidth="200.0" text="Tri auxiliaire n° 1  : ">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font></Label>
+                              <ComboBox fx:id="cbAuxiliaire" prefWidth="250.0" promptText="Trier sur...">
+                                 <HBox.margin>
+                                    <Insets left="25.0" right="10.0" />
+                                 </HBox.margin>
+                              </ComboBox>
+                              <CheckBox fx:id="auxiliaire1Decroit" contentDisplay="RIGHT" mnemonicParsing="false" prefWidth="150.0" text="Décroissant">
+                                 <HBox.margin>
+                                    <Insets left="50.0" right="25.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </CheckBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="50.0">
+                           <children>
+                              <Label prefWidth="200.0" text="Tri auxiliaire n° 2  :">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font></Label>
+                              <ComboBox fx:id="cbAuxiliaire2" prefWidth="250.0" promptText="Trier sur...">
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" left="25.0" right="10.0" />
+                                 </HBox.margin>
+                              </ComboBox>
+                              <CheckBox fx:id="auxiliaire2Decroit" contentDisplay="RIGHT" mnemonicParsing="false" prefWidth="150.0" text="Décroissant">
+                                 <HBox.margin>
+                                    <Insets left="50.0" right="25.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </CheckBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <Label text="Les tris auxiliaires sont optionnels, le mode par défaut est le tri croissant" textFill="#5c5c5c">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="Le tri par cours s'effectue sur le type de danse, le niveau et, finalement, le nom" textFill="#5c5c5c">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                        <Label text="Si des tris sont identiques (hors croissance et decroissance), c'est le premier tri identique qui s'impose" textFill="#5c5c5c">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="bnLancerTri" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#lancerTri" text="Lancer le tri" textAlignment="CENTER">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="100.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="bnSelectionner" mnemonicParsing="false" onAction="#selectionnerMembre" text="Sélectionner" />
+               </children>
+            </HBox>
+         </children>
+         <BorderPane.margin>
+            <Insets left="5.0" />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+   <top>
+      <VBox prefHeight="35.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <CheckBox fx:id="cbFiltrePaye" mnemonicParsing="false" text="Filtrer la liste sur les membres ayant payé">
+               <font>
+                  <Font size="13.0" />
+               </font></CheckBox>
+            <Label prefHeight="35.0" text="Par défaut la liste est filtré sur les membres n'ayant pas payé" textFill="#5c5c5c">
+               <font>
+                  <Font size="11.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="25.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+         <BorderPane.margin>
+            <Insets left="5.0" top="5.0" />
+         </BorderPane.margin>
+      </VBox>
+   </top>
+   <bottom>
+   		<HBox prefWidth="600.0" BorderPane.alignment="CENTER">
+      <children>
+            <TableView fx:id="tvListe" prefHeight="200.0" prefWidth="700.0">
+              <columns>
+                <TableColumn maxWidth="2.0" minWidth="0.0" prefWidth="-1.0" text="C1" />
+                <TableColumn minWidth="150.0" prefWidth="-1.0" text="C2" />
+                  <TableColumn minWidth="50.0" prefWidth="-1.0" text="C2" />
+                  <TableColumn minWidth="50.0" prefWidth="-1.0" text="C2" />
+                  <TableColumn maxWidth="-1.0" minWidth="-1.0" prefWidth="-1.0" text="C2" />
+                  <TableColumn maxWidth="-1.0" minWidth="-1.0" prefWidth="-1.0" text="C2" />
+                  <TableColumn maxWidth="-1.0" minWidth="-1.0" prefWidth="-1.0" text="C2" />
+              </columns>
+            </TableView>
+      </children>
+      	</HBox>
+   </bottom>
+</BorderPane>

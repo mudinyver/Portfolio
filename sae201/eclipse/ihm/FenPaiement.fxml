@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.CtrlDate">
+   <children>
+      <DatePicker fx:id="dpDate" layoutX="150.0" layoutY="30.0" prefHeight="30.0" prefWidth="180.0" />
+      <TextField fx:id="txtMontant" layoutX="150.0" layoutY="80.0" prefHeight="30.0" prefWidth="180.0" />
+      <Label layoutX="80.0" layoutY="35.0" text="Date :" />
+      <Label layoutX="80.0" layoutY="85.0" text="Montant :" />
+      <Button fx:id="bnValider" defaultButton="true" layoutX="335.0" layoutY="125.0" mnemonicParsing="false" onAction="#valider" text="Valider" />
+      <Button fx:id="bnAnnuler" cancelButton="true" layoutX="25.0" layoutY="125.0" mnemonicParsing="false" onAction="#fermer" text="Annuler" />
+   </children>
+</Pane>
