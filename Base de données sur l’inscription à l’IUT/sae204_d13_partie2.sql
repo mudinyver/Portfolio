@@ -10,7 +10,7 @@
 
 -- Pour peupler la base, veuillez remplacer /media/mudinyver/PHILIPS UFD/IUT/psql2/s204/data/ par le chemin du dossier contenant les .csv
 -- et veuillez exécuter sae204_partie2_schema.sql (je n'y ai pas touché, c'est le script trouvable sur Moodle) 
--- avant d'exécuter le script contenu dan sce fichier.
+-- avant d'exécuter le script contenu dans ce fichier.
 
 
 

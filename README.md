@@ -67,7 +67,7 @@ Création d’un serveur Apache HTML rudimentaire.
 
 ---
 
-## **Intitulé du projet :** Gestion du projet de Suivi du paiement des membres d'une association
+## **Intitulé du projet :** Gestion du projet de suivi du paiement des membres d'une association
 
 **Année :** 2024/2025
 
