@@ -1,7 +1,7 @@
 # Portfolio
 **Portfolio de Mael UDIN--YVER, IUT de Lannion**  
 
-## **Intitulé du projet :** Base de données sur l’inscription à l’IUT
+## [**Intitulé du projet :** Base de données sur l’inscription à l’IUT](Base de données sur l’inscription à l’IUT)
 
 **Année :** 2024/2025
 
@@ -23,7 +23,7 @@ Mise en application ce qui a été vu en cours, c'est-à-dire, comment concevoir
 
 ---
 
-## **Intitulé du projet :** Suivi du paiement des membres d'une association
+## [**Intitulé du projet :** Suivi du paiement des membres d'une association](Suivi du paiement des membres d'une association)
 
 **Année :** 2024/2025
 
@@ -45,7 +45,7 @@ Réalisation d’un triage à plusieurs paramètres et de multiples priorités. 
 
 ---
 
-## **Intitulé du projet :** Découverte de serveur Apache HTTP
+## [**Intitulé du projet :** Découverte de serveur Apache HTTP](Découverte de serveur Apache HTTP)
 
 **Année :** 2024/2025
 
@@ -67,7 +67,7 @@ Création d’un serveur Apache HTML rudimentaire.
 
 ---
 
-## **Intitulé du projet :** Gestion du projet de suivi du paiement des membres d'une association
+## [**Intitulé du projet :** Gestion du projet de suivi du paiement des membres d'une association](Gestion du projet de suivi du paiement des membres d'une association)
 
 **Année :** 2024/2025
 
@@ -89,7 +89,7 @@ Conception d’une note de cadrage, d’une SEL et d’une estimation des charge
 
 ---
 
-## **Intitulé du projet :**  Création d’un team-building
+## [**Intitulé du projet :** Création d’un team-building](Création d’un team-building)
 
 **Année :** 2024/2025
 
@@ -111,7 +111,7 @@ Techniques de conception d’infographie et dèveloppement du sens du travail en
 
 ---
 
-## **Intitulé du projet :**  Algorithmes sur des nuages de point
+## [**Intitulé du projet :** Algorithmes sur des nuages de point](Algorithmes sur des nuages de point)
 
 **Année :** 2024/2025
 
@@ -136,7 +136,7 @@ Créativité, sens du travail en équipe, résolution de problèmes divers.
 
 ---
 
-## **Intitulé du projet :**  Snake en C (partie 2)
+## [**Intitulé du projet :** Snake en C (partie 2)](Snake en C (partie 2))
 
 **Année :** 2024/2025
 
@@ -161,7 +161,7 @@ Créativité, sens du travail en équipe, résolution de problèmes divers.
 
 ---
 
-## **Intitulé du projet :** Base de donnée sur le foot
+## [**Intitulé du projet :** Base de donnée sur le foot](Base de donnée sur le foot)
 
 **Année :** 2024/2025
 
@@ -188,7 +188,7 @@ Organisation du travail en équipe, créativité, prise d’initiative.
 
 ---
 
-## **Intitulé du projet :** Automatisation de conversion de fichiers
+## [**Intitulé du projet :** Automatisation de conversion de fichiers](Automatisation de conversion de fichiers)
 
 **Année :** 2024/2025
 
@@ -214,7 +214,7 @@ Organisation du travail en équipe, créativité, prise d’initiative.
 
 ---
 
-## **Intitulé du projet :** Site internet des JO 2024
+## [**Intitulé du projet :** Site internet des JO 2024](Site internet des JO 2024)
 
 **Année :** 2024/2025
 
@@ -244,7 +244,7 @@ Organisation du travail en équipe, créativité, prise d’initiative.
 
 ---
 
-## **Intitulé du projet :** Snake en C
+## [**Intitulé du projet :** Snake en C](Snake en C)
 
 **Année :** 2024/2025
 
@@ -274,7 +274,7 @@ Créativité, résolution de problèmes divers.
 
 ---
 
-## **Intitulé du projet :** Sudokus personnalisables
+## [**Intitulé du projet :** Sudokus personnalisables](Sudokus personnalisables)
 
 **Année :** 2023/2024
 
@@ -297,7 +297,7 @@ Organisation du travail, créativité, résolution de problèmes.
 
 ---
 
-## **Intitulé du projet :** Programme de chiffrement
+## [**Intitulé du projet :** Programme de chiffrement](Programme de chiffrement)
 
 **Année :** 2022/2023
 
@@ -320,7 +320,7 @@ Organisation du travail, créativité, résolution de problèmes.
 
 ---
 
-## **Intitulé du projet :** Modpack vanilla+ minecraft
+## [**Intitulé du projet :** Modpack vanilla+ minecraft](Modpack vanilla+ minecraft)
 
 **Année :** 2022/2023
 

@@ -1,3 +1,5 @@
+**Instructions :**
+
 Le fichier main doit être placé avec les fichiers à convertir. 
 Les scripts doivent être dans un dossier scripts, dossier qui doit être placé avec les fichiers à convertir.
 Les dossiers depot et paysDrapeaux doivent être placés dans le dossier parent du dossier contenant les fichiers à convertir au cas où vous êtes à l'IUT. 
@@ -26,3 +28,31 @@ chmod +x mainPasIUT
 Dans tous les cas, attendez que le script finisse de s'exécuter.
 Tous vos fichiers devraient alors avoir été convertis, ils seraient donc dans le dossier depot. Pour accéder à ce dossier tapez la commande suivante :
 cd ../depot
+
+# **Intitulé du projet :** Automatisation de conversion de fichiers
+
+<img src="../.readme_images/processus.png" alt="" width="100em">
+
+**Identifiant et libellé universitaire :** SAÉ 1.03 [Nom potentiellement perdu]
+
+**Année :** 2024/2025
+
+**Description succincte du projet :**
+
+Conversion de fichiers, réalisé en plusieurs phases :
+ - analyse des fichiers, des modifications à effectuer et de leur faisabilité,
+ - conversion à la main,
+ - automatisation des conversions
+
+**Cadre :**
+Réalisé dans le cadre d’un projet universitaire avec une équipe de quatre.
+
+
+**Technologies :**
+Utilisation de Visual Studio Code, du Terminal et de Docker. Programmé avec du bash et du PHP-CLI.
+
+**Résultats :**
+La conversion automatique est fonctionnelle.
+
+**Aptitudes personnelles développées :**
+Organisation du travail en équipe, créativité, prise d’initiative.
