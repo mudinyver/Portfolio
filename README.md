@@ -1,5 +1,36 @@
 # Portfolio
-**Portfolio de Mael UDIN--YVER, IUT de Lannion**  
+**Portfolio de Mael UDIN--YVER, IUT de Lannion**
+
+[<img src=".readme_images/linkedin.png" alt="Icone de LinkedIn" width="20em"> Profil Linkedin](www.linkedin.com/in/mael-udin-yver-a96a69352)
+
+## **Intitulé du projet :** Alizon, site de marktplace
+
+**Année :** 2025/2026
+
+**Description succincte du projet :**
+
+Créer un site marketplace répondant à un cahier des charges. 
+Le site devra avoir une interface client (avec laquelle il faudra notemment pouvoir se connecter, remplir un panier, effectuer un achat, recevoir une facture, suivre sa livraison, poster des commentaires etc.) ainsi qu'une interface vendeur (avec laquelle il faudra notemment pouvoir voir des statistiques, mettre un produit en ligne, placer des réductions, mettre en avant un produit, modifier un produit, enlever un produit, etc.). 
+
+Pour cela, concevez une charte graphique, une maquette, un dictionnaire des données, un schéma relationnel, une base de données ainsi que le site en lui-même.
+
+Après cela, peupler la base de données et développer le site.
+Vous devrez utiliser la méthode *Agile : Scrum* pour ce projet.
+                   
+**Cadre :**
+Réalisé dans le cadre d’un projet universitaire en équipe de 5, via la méthode *Agile : Scrum*.
+
+**Technologies :**
+Utilisation de Visual Studio Code, de SQLWorkbench, de GitHub, de ProxMox, de Figma et de Jira. Programmé avec PostgreSQL, PHP, JavaScript, HTML et CSS.
+
+**Résultats :**
+Le Sprint 0 étant terminé, les User Stories (US) ont été rédigées, la charge de travail par US allouée, la version 1 de la maquette finie, le dictionnaire des données finalisé, le schéma relationnel conçu et la base de données créée.
+Le Sprint 1 est en cours.
+
+**Aptitudes personnelles développées :**
+Mise en application ce qui a été vu en cours, notemment sur la conception de base de données, sur la réalisation de maquettes et sur les méthodes Agile.
+
+---
 
 ## [**Intitulé du projet :** Base de données sur l’inscription à l’IUT](./Base%20de%20données%20sur%20l’inscription%20à%20l’IUT/)
 
