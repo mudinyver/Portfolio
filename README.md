@@ -25,10 +25,12 @@ Utilisation de Visual Studio Code, de SQLWorkbench, de GitHub, de ProxMox, de Fi
 
 **Résultats :**
 Le Sprint 0 étant terminé, les User Stories (US) ont été rédigées, la charge de travail par US allouée, la version 1 de la maquette finie, le dictionnaire des données finalisé, le schéma relationnel conçu et la base de données créée.
-Le Sprint 1 est en cours.
+Le Sprint 1 est terminé. Les pages du catalogue client, du profil client, des produits, du panier, du paiement, du catalogue vendeur, du profil vendeur, de création / modification de produits ont été crées et sont opérationnelles.
+La base de données a été peuplé et un premier système de commentaires à été implémenté.
 
 **Aptitudes personnelles développées :**
-Mise en application ce qui a été vu en cours, notemment sur la conception de base de données, sur la réalisation de maquettes et sur les méthodes Agile.
+**Au Sprint 0 :** Mise en application ce qui a été vu en cours, notemment sur la conception de base de données, sur la réalisation de maquettes et sur les méthodes Agile.
+**Au Sprint 1 :** Mise en application des cours en PHP, en JavaScript et en PL/pgSQL (langage procédural de base de données). Lancement d'un véritable Sprint en AGILE avec réunions journalières, review et rétrospective.
 
 ---
 
