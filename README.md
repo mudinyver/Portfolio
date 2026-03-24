@@ -34,9 +34,13 @@ Le Sprint 2 est terminé. La recherche, les tris et filtres sont opérationnels.
 Le Sprint 3 est terminé, ce qui clôture ce projet. Une carte interactive a été implémentée, une page boutique a été créée pour les vendeurs, des pages statistiques ont été conçues, un système d'import / export CSV a été fait, un système de favoris a été développé, un catalogue PDF téléchargeable a été réalisé, un mode daltonien mis en place et un système de double authentification a été créé.
 
 **Aptitudes personnelles développées :**
+
 **Au Sprint 0 :** Mise en application de ce qui a été vu en cours, notamment sur la conception de base de données, sur la réalisation de maquettes et sur les méthodes Agile.
+
 **Au Sprint 1 :** Mise en application des cours en PHP, en JavaScript et en PL/pgSQL (langage procédural de base de données). Lancement d'un véritable Sprint en AGILE avec réunions journalières, review et rétrospective.
+
 **Au Sprint 2 :** Continuité des mises en application précédentes. Rédaction des mentions légales, des CGU et des CGV. Réalisation d'un système de facturation.
+
 **Au Sprint 3 :** Continuité des mises en application précédentes. Passage de l'*AGILE : Scrum* en *AGILE : Scrumban* afin de découvrir un nouveau mode de gestion de projet. Conception du système de double authentification à l'aide des dépôts GitHub suivants :
 - [OTPHP par Spomky labs](https://github.com/spomky-labs/otphp)
 - [qr-code par endroid](https://github.com/endroid/qr-code)
