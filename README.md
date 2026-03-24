@@ -10,27 +10,36 @@
 **Description succincte du projet :**
 
 Créer un site marketplace répondant à un cahier des charges. 
-Le site devra avoir une interface client (avec laquelle il faudra notemment pouvoir se connecter, remplir un panier, effectuer un achat, recevoir une facture, suivre sa livraison, poster des commentaires etc.) ainsi qu'une interface vendeur (avec laquelle il faudra notemment pouvoir voir des statistiques, mettre un produit en ligne, placer des réductions, mettre en avant un produit, modifier un produit, enlever un produit, etc.). 
+Le site devra avoir une interface client (avec laquelle il faudra notamment pouvoir se connecter, remplir un panier, effectuer un achat, recevoir une facture, suivre sa livraison, poster des commentaires etc.) ainsi qu'une interface vendeur (avec laquelle il faudra notamment pouvoir voir des statistiques, mettre un produit en ligne, placer des réductions, mettre en avant un produit, modifier un produit, enlever un produit, etc.). 
 
 Pour cela, concevez une charte graphique, une maquette, un dictionnaire des données, un schéma relationnel, une base de données ainsi que le site en lui-même.
 
 Après cela, peupler la base de données et développer le site.
-Vous devrez utiliser la méthode *Agile : Scrum* pour ce projet.
+Vous devrez utiliser la méthode *AGILE : Scrum* pour ce projet.
                    
 **Cadre :**
-Réalisé dans le cadre d’un projet universitaire en équipe de 5, via la méthode *Agile : Scrum*.
+Réalisé dans le cadre d’un projet universitaire en équipe de 6, via la méthode *AGILE : Scrum*.
 
 **Technologies :**
 Utilisation de Visual Studio Code, de SQLWorkbench, de GitHub, de ProxMox, de Figma et de Jira. Programmé avec PostgreSQL, PHP, JavaScript, HTML et CSS.
 
 **Résultats :**
-Le Sprint 0 étant terminé, les User Stories (US) ont été rédigées, la charge de travail par US allouée, la version 1 de la maquette finie, le dictionnaire des données finalisé, le schéma relationnel conçu et la base de données créée.
-Le Sprint 1 est terminé. Les pages du catalogue client, du profil client, des produits, du panier, du paiement, du catalogue vendeur, du profil vendeur, de création / modification de produits ont été crées et sont opérationnelles.
-La base de données a été peuplé et un premier système de commentaires à été implémenté.
+Le Sprint 0 étant terminé, les User Stories (US) ont été rédigées, la charge de travail par US allouée, la version 1 de la maquette finie, le dictionnaire des données finalisé, le schéma relationnel conçu et la base de données créée.  
+
+Le Sprint 1 est terminé. Les pages du catalogue client, du profil client, des produits, du panier, du paiement, du catalogue vendeur, du profil vendeur, de création / modification de produits ont été créées et sont opérationnelles.
+La base de données a été peuplée et un premier système de commentaires à été implémenté.  
+
+Le Sprint 2 est terminé. La recherche, les tris et filtres sont opérationnels. Un système de remises et de mises en avant a été implémenté pour les vendeurs et un système d'avis a été implémenté. Un outil de suivi de commande a été réalisé en C, accompagné de factures.
+
+Le Sprint 3 est terminé, ce qui clôture ce projet. Une carte interactive a été implémentée, une page boutique a été créée pour les vendeurs, des pages statistiques ont été conçues, un système d'import / export CSV a été fait, un système de favoris a été développé, un catalogue PDF téléchargeable a été réalisé, un mode daltonien mis en place et un système de double authentification a été créé.
 
 **Aptitudes personnelles développées :**
-**Au Sprint 0 :** Mise en application ce qui a été vu en cours, notemment sur la conception de base de données, sur la réalisation de maquettes et sur les méthodes Agile.
+**Au Sprint 0 :** Mise en application de ce qui a été vu en cours, notamment sur la conception de base de données, sur la réalisation de maquettes et sur les méthodes Agile.
 **Au Sprint 1 :** Mise en application des cours en PHP, en JavaScript et en PL/pgSQL (langage procédural de base de données). Lancement d'un véritable Sprint en AGILE avec réunions journalières, review et rétrospective.
+**Au Sprint 2 :** Continuité des mises en application précédentes. Rédaction des mentions légales, des CGU et des CGV. Réalisation d'un système de facturation.
+**Au Sprint 3 :** Continuité des mises en application précédentes. Passage de l'*AGILE : Scrum* en *AGILE : Scrumban* afin de découvrir un nouveau mode de gestion de projet. Conception du système de double authentification à l'aide des dépôts GitHub suivants :
+- [OTPHP par Spomky labs](https://github.com/spomky-labs/otphp)
+- [qr-code par endroid](https://github.com/endroid/qr-code)
 
 ---
 
